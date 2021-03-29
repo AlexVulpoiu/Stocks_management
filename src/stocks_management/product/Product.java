@@ -3,7 +3,7 @@ package stocks_management.product;
 import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
 
-public class Product {
+public abstract class Product implements Comparable<Product> {
 
     protected String productId;
     protected String productName;
@@ -73,11 +73,22 @@ public class Product {
         return stock;
     }
 
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
     public int getWarranty() {
         return warranty;
     }
 
     public void setWarranty(int warranty) {
         this.warranty = warranty;
+    }
+
+    public abstract void showDescription();
+
+    @Override
+    public int compareTo(Product product) {
+        return this.productName.compareTo(product.productName);
     }
 }

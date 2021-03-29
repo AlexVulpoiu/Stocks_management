@@ -3,6 +3,8 @@ package stocks_management.product;
 import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
 
+import java.sql.SQLOutput;
+
 public class MobilePhone extends Product {
 
     private double diagonal;
@@ -48,5 +50,23 @@ public class MobilePhone extends Product {
 
     public void setNumberOfCameras(int numberOfCameras) {
         this.numberOfCameras = numberOfCameras;
+    }
+
+    @Override
+    public void showDescription() {
+
+        System.out.println(this.productName + ", " + this.diagonal + " inches screen");
+        System.out.println("\t" + this.ram + "GB RAM, " + this.memory + " internal storage");
+        System.out.println("\tTake the best photos with one of the " + this.numberOfCameras + " cameras at " + this.price + " euros!");
+        if(this.promotion != null) {
+            System.out.println("\tFor the same amount of money, we have a special offer: " + this.promotion.getProductName());
+        }
+
+        if(this.stock > 0) {
+            System.out.println("\tIn stock: " + this.stock + " pieces");
+        } else {
+            System.out.println("\tFor the moment, the product is not available!");
+        }
+        System.out.println();
     }
 }

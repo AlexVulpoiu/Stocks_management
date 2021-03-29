@@ -69,4 +69,24 @@ public class Fridge extends Product {
     public void setFreezer(boolean freezer) {
         this.freezer = freezer;
     }
+
+    @Override
+    public void showDescription() {
+
+        System.out.println(this.productName + " fridge with " + this.warranty + " years warranty!");
+        System.out.println("\tAdjustable temperature between " + minTemperature + " and " + maxTemperature + " Celsius degrees.");
+
+        if(this.freezer) {
+            System.out.print("\tFreezer included.");
+        }
+
+        System.out.println("\tBuy now for " + this.price + " euros!");
+
+        if(this.stock > 0) {
+            System.out.println("\tIn stock: " + this.stock + " pieces");
+        } else {
+            System.out.println("\tFor the moment, the product is not available!");
+        }
+        System.out.println();
+    }
 }

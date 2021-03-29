@@ -49,4 +49,26 @@ public class AudioSystem extends Product {
     public void setBluetooth(boolean bluetooth) {
         this.bluetooth = bluetooth;
     }
+
+    @Override
+    public void showDescription() {
+
+        System.out.println(this.productName + " audio system from " + this.productDistributor.getDistributorName());
+        System.out.println("\tHaving " + this.power + "W power and " + this.numberOfPieces + " components, it's the best choice for a good party! Buy now for only " + this.price + " euros!");
+
+        if(this.wireless && this.bluetooth) {
+            System.out.println("\tYou can use it wireless or via bluetooth!");
+        } else if(this.wireless) {
+            System.out.println("\tWireless functionality included!");
+        } else if(this.bluetooth) {
+            System.out.println("\tYou can connect to the audio system via bluetooth!");
+        }
+
+        if(this.stock > 0) {
+            System.out.println("\tIn stock: " + this.stock + " pieces");
+        } else {
+            System.out.println("\tFor the moment, the product is not available!");
+        }
+        System.out.println();
+    }
 }

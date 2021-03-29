@@ -39,4 +39,29 @@ public class AudioSpeaker extends Product {
     public void setBluetooth(boolean bluetooth) {
         this.bluetooth = bluetooth;
     }
+
+    @Override
+    public void showDescription() {
+
+        System.out.println(this.productName + " audio speaker from " + this.productDistributor.getDistributorName());
+        System.out.println("\tIt's the perfect choice for a trip, a small party or daily use. Buy it now for only " + this.price + " euros!");
+
+        if(this.wireless && this.bluetooth) {
+            System.out.println("\tYou can use it wireless or via bluetooth!");
+        } else if(this.wireless) {
+            System.out.println("\tWireless functionality included!");
+        } else if(this.bluetooth) {
+            System.out.println("\tYou can connect to this speaker via bluetooth!");
+        }
+        if(this.promotion != null) {
+            System.out.println("\tHurry up, we have a special offer: you will get for free a " + this.promotion.getProductName() + "!");
+        }
+
+        if(this.stock > 0) {
+            System.out.println("\tIn stock: " + this.stock + " pieces");
+        } else {
+            System.out.println("\tFor the moment, the product is not available!");
+        }
+        System.out.println();
+    }
 }

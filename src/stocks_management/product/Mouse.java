@@ -19,4 +19,23 @@ public class Mouse extends Product {
     public void setWireless(boolean wireless) {
         this.wireless = wireless;
     }
+
+    @Override
+    public void showDescription() {
+
+        System.out.print(this.productName + ", ");
+
+        if(this.wireless) {
+            System.out.println("wireless");
+        } else {
+            System.out.println("connected via USB");
+        }
+        System.out.println("\tPrice: " + this.price);
+        if(this.stock > 0) {
+            System.out.println("\tIn stock: " + this.stock + " pieces");
+        } else {
+            System.out.println("\tFor the moment, the product is not available!");
+        }
+        System.out.println();
+    }
 }

@@ -19,4 +19,18 @@ public class PowerBank extends Product {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+    @Override
+    public void showDescription() {
+
+        System.out.println(this.productName + " from " + this.productDistributor.getDistributorName());
+        System.out.println("\tHaving trouble with your phone battery? Here's the solution: the " + this.capacity + "mAh power bank!");
+        System.out.println("\tNow at a special price: " + this.price + " euros");
+        if(this.stock > 0) {
+            System.out.println("\tIn stock: " + this.stock + " pieces");
+        } else {
+            System.out.println("\tFor the moment, the product is not available!");
+        }
+        System.out.println();
+    }
 }
