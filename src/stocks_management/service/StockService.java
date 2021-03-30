@@ -71,8 +71,8 @@ public class StockService {
         if(index != -1) {
             stock[index] = stock[stock.length - 1];
             stock = Arrays.copyOf(stock, stock.length - 1);
+            Arrays.sort(stock);
         }
-        Arrays.sort(stock);
     }
 
     public void applyPromotion(Product product, Product promotion) {
@@ -133,10 +133,46 @@ public class StockService {
         Arrays.sort(distributors);
     }
 
+    public void addTransaction(Transaction transaction) {
+
+        this.transactions = Arrays.copyOf(this.transactions, this.transactions.length + 1);
+        this.transactions[transactions.length - 1] = transaction;
+        Arrays.sort(transactions);
+    }
+
     public void showStock() {
+
         System.out.println("Current stocks:");
         for(Product product: stock) {
-            System.out.println();
+            System.out.println(product);
         }
+        System.out.println();
+    }
+
+    public void showCategories() {
+
+        System.out.println("Current categories:");
+        for(Category category : categories) {
+            System.out.println(category);
+        }
+        System.out.println();
+    }
+
+    public void showDistributor() {
+
+        System.out.println("Current distributors:");
+        for(Distributor distributor : distributors) {
+            System.out.println(distributor);
+        }
+        System.out.println();
+    }
+
+    public void showTransactions() {
+
+        System.out.println("Current transactions: ");
+        for(Transaction transaction : transactions) {
+            transaction.showTransaction();
+        }
+        System.out.println();
     }
 }

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Transaction {
+public class Transaction implements Comparable<Transaction> {
 
     private final int transactionNumber;
     private String date;
@@ -134,5 +134,10 @@ public class Transaction {
                 ", total=" + total +
                 ", opened=" + opened +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Transaction transaction) {
+        return this.date.compareTo(transaction.date);
     }
 }
