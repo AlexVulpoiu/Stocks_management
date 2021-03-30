@@ -16,6 +16,14 @@ public class StockService {
     private Category[] categories;
     private Transaction[] transactions;
 
+    public StockService() {
+        totalIncome = 0;
+        stock = new Product[0];
+        distributors = new Distributor[0];
+        categories = new Category[0];
+        transactions = new Transaction[0];
+    }
+
     private int binarySearch(Product product) {
 
         int left, right, middle, index;
@@ -48,6 +56,7 @@ public class StockService {
         if(index == -1) {
             stock = Arrays.copyOf(stock, stock.length + 1);
             stock[stock.length - 1] = product;
+            Arrays.sort(stock);
         } else {
             stock[index].setPrice(product.getPrice());
             stock[index].setStock(stock[index].getStock() + product.getStock());
@@ -63,6 +72,7 @@ public class StockService {
             stock[index] = stock[stock.length - 1];
             stock = Arrays.copyOf(stock, stock.length - 1);
         }
+        Arrays.sort(stock);
     }
 
     public void applyPromotion(Product product, Product promotion) {
@@ -96,7 +106,6 @@ public class StockService {
         product.setPrice(product.getPrice() * (1 + percent));
         Category category = product.getProductCategory();
 
-
         int index = binarySearch(product);
         if(index != -1) {
             stock[index].setPrice(stock[index].getPrice() * (1 + percent));
@@ -110,8 +119,24 @@ public class StockService {
                 product.setPrice(product.getPrice() * (1 + percent));
             }
         }
+    }
 
-        Product[] categoryProducts = category.getProducts();
-        /// deja modificate?
+    public void addCategory(Category category) {
+        this.categories = Arrays.copyOf(this.categories, this.categories.length + 1);
+        this.categories[this.categories.length - 1] = category;
+        Arrays.sort(categories);
+    }
+
+    public void addDistributor(Distributor distributor) {
+        this.distributors = Arrays.copyOf(this.distributors, this.distributors.length + 1);
+        this.distributors[this.distributors.length - 1] = distributor;
+        Arrays.sort(distributors);
+    }
+
+    public void showStock() {
+        System.out.println("Current stocks:");
+        for(Product product: stock) {
+            System.out.println();
+        }
     }
 }

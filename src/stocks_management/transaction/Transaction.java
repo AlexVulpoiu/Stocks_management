@@ -5,10 +5,11 @@ import stocks_management.product.Product;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Transaction {
 
-    private int transactionNumber;
+    private final int transactionNumber;
     private String date;
     private Product[] products;
     private double total;
@@ -109,5 +110,29 @@ public class Transaction {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         this.date = dtf.format(now);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transaction)) return false;
+        Transaction that = (Transaction) o;
+        return transactionNumber == that.transactionNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(transactionNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionNumber=" + transactionNumber +
+                ", date='" + date + '\'' +
+                ", products=" + Arrays.toString(products) +
+                ", total=" + total +
+                ", opened=" + opened +
+                '}';
     }
 }

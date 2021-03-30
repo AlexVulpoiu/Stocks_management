@@ -89,4 +89,16 @@ public class Fridge extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "Fridge{" +
+                "minTemperature=" + minTemperature +
+                ", maxTemperature=" + maxTemperature +
+                ", height=" + height +
+                ", width=" + width +
+                ", length=" + length +
+                ", freezer=" + freezer +
+                "} " + super.toString();
+    }
 }

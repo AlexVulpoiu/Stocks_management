@@ -21,4 +21,9 @@ public class GasCooker extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "GasCooker{} " + super.toString();
+    }
 }

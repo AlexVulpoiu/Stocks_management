@@ -69,4 +69,14 @@ public class MobilePhone extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "MobilePhone{" +
+                "diagonal=" + diagonal +
+                ", ram=" + ram +
+                ", memory=" + memory +
+                ", numberOfCameras=" + numberOfCameras +
+                "} " + super.toString();
+    }
 }

@@ -21,4 +21,9 @@ public class Headphones extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "Headphones{} " + super.toString();
+    }
 }

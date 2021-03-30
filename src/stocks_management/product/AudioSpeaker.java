@@ -64,4 +64,13 @@ public class AudioSpeaker extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "AudioSpeaker{" +
+                "power=" + power +
+                ", wireless=" + wireless +
+                ", bluetooth=" + bluetooth +
+                "} " + super.toString();
+    }
 }

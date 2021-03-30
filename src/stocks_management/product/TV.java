@@ -56,4 +56,13 @@ public class TV extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "TV{" +
+                "diagonal=" + diagonal +
+                ", resolution='" + resolution + '\'' +
+                ", room='" + room + '\'' +
+                "} " + super.toString();
+    }
 }

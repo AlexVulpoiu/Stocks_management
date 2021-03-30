@@ -71,4 +71,14 @@ public class AudioSystem extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "AudioSystem{" +
+                "power=" + power +
+                ", numberOfPieces=" + numberOfPieces +
+                ", wireless=" + wireless +
+                ", bluetooth=" + bluetooth +
+                "} " + super.toString();
+    }
 }

@@ -21,4 +21,9 @@ public class Smartwatch extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "Smartwatch{} " + super.toString();
+    }
 }

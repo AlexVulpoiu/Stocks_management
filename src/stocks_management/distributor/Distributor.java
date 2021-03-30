@@ -3,6 +3,7 @@ package stocks_management.distributor;
 import stocks_management.product.Product;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Distributor implements Comparable<Distributor> {
 
@@ -85,5 +86,28 @@ public class Distributor implements Comparable<Distributor> {
     @Override
     public int compareTo(Distributor distributor) {
         return this.distributorName.compareTo(distributor.distributorName);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Distributor)) return false;
+        Distributor that = (Distributor) o;
+        return distributorName.equals(that.distributorName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(distributorName);
+    }
+
+    @Override
+    public String toString() {
+        return "Distributor{" +
+                "distributorId='" + distributorId + '\'' +
+                ", distributorName='" + distributorName + '\'' +
+                ", country='" + country + '\'' +
+                ", products=" + Arrays.toString(products) +
+                '}';
     }
 }

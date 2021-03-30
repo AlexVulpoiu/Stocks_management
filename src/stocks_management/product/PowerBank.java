@@ -33,4 +33,11 @@ public class PowerBank extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "PowerBank{" +
+                "capacity=" + capacity +
+                "} " + super.toString();
+    }
 }

@@ -110,4 +110,18 @@ public class Laptop extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "Laptop{" +
+                "diagonal=" + diagonal +
+                ", cpu='" + cpu + '\'' +
+                ", ram=" + ram +
+                ", memory=" + memory +
+                ", storageType='" + storageType + '\'' +
+                ", graphicsCard='" + graphicsCard + '\'' +
+                ", usbPorts=" + usbPorts +
+                ", category='" + category + '\'' +
+                "} " + super.toString();
+    }
 }

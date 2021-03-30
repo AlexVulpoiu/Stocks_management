@@ -1,10 +1,11 @@
 package stocks_management.category;
 
-import stocks_management.product.PorductDistributorComparator;
+import stocks_management.product.ProductDistributorComparator;
 import stocks_management.product.Product;
 import stocks_management.product.ProductPriceComparator;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Category implements Comparable<Category> {
 
@@ -91,10 +92,32 @@ public class Category implements Comparable<Category> {
     }
 
     public void showProductsByDistributor() {
-        Arrays.sort(products, new PorductDistributorComparator());
+        Arrays.sort(products, new ProductDistributorComparator());
 
         for(Product product : products) {
             System.out.println(product);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Category)) return false;
+        Category category = (Category) o;
+        return categoryName.equals(category.categoryName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(categoryName);
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "categoryId='" + categoryId + '\'' +
+                ", categoryName='" + categoryName + '\'' +
+                ", products=" + Arrays.toString(products) +
+                '}';
     }
 }

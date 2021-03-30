@@ -38,4 +38,11 @@ public class Mouse extends Product {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "Mouse{" +
+                "wireless=" + wireless +
+                "} " + super.toString();
+    }
 }

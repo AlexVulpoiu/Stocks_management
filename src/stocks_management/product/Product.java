@@ -3,6 +3,8 @@ package stocks_management.product;
 import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
 
+import java.util.Objects;
+
 public abstract class Product implements Comparable<Product> {
 
     protected String productId;
@@ -90,5 +92,32 @@ public abstract class Product implements Comparable<Product> {
     @Override
     public int compareTo(Product product) {
         return this.productName.compareTo(product.productName);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return productName.equals(product.productName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productName);
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId='" + productId + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productCategory=" + productCategory +
+                ", productDistributor=" + productDistributor +
+                ", price=" + price +
+                ", promotion=" + promotion +
+                ", stock=" + stock +
+                ", warranty=" + warranty +
+                '}';
     }
 }
