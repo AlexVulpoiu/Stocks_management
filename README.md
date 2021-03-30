@@ -1,7 +1,7 @@
 # Stocks_management
 A project that helps managing stocks of an electronics and applicances store.
 
-#Functionalities:
+# Functionalities:
 - generate random products;
 - add category;
 - add distributor;
@@ -23,7 +23,7 @@ A project that helps managing stocks of an electronics and applicances store.
 - show transactions;
 - show total income.
 
-#Object types:
+# Object Types:
 - PRODUCT(abstract class);
 - LAPTOP, MOBILE_PHONE, FRIDGE, GAS_COOKER, AUDIO_SYSTEM, AUDIO_SPEAKER, TV, MOUSE, HEADPHONES, SMARTWATCH, POWER_BANK;
 - CATEGORY;
