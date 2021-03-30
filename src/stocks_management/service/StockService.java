@@ -3,11 +3,14 @@ package stocks_management.service;
 import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
 import stocks_management.product.*;
+import stocks_management.product.filterable.Filterable;
 import stocks_management.transaction.Transaction;
 import stocks_management.validator.Validator;
 
+import java.nio.file.attribute.FileTime;
 import java.util.Arrays;
 import java.util.Random;
+
 
 public class StockService {
 
@@ -23,6 +26,22 @@ public class StockService {
         distributors = new Distributor[0];
         categories = new Category[0];
         transactions = new Transaction[0];
+    }
+
+    public Product[] getStock() {
+        return stock;
+    }
+
+    public Distributor[] getDistributors() {
+        return distributors;
+    }
+
+    public Category[] getCategories() {
+        return categories;
+    }
+
+    public Transaction[] getTransactions() {
+        return transactions;
     }
 
     private int binarySearch(Product product) {
@@ -73,6 +92,7 @@ public class StockService {
             stock[index] = stock[stock.length - 1];
             stock = Arrays.copyOf(stock, stock.length - 1);
             Arrays.sort(stock);
+            System.out.println("Product " + product.getProductName() + " removed from stock!");
         } else {
             System.out.println("The product wasn't added to stock!");
         }
@@ -165,7 +185,7 @@ public class StockService {
         System.out.println();
     }
 
-    public void showDistributor() {
+    public void showDistributors() {
 
         System.out.println("Current distributors:");
         for(Distributor distributor : distributors) {
@@ -183,7 +203,7 @@ public class StockService {
         System.out.println();
     }
 
-    private String generateId(String prefix) {
+    public String generateId(String prefix) {
 
         String allowedChars = "0123456789";
         StringBuilder suffix = new StringBuilder();
@@ -195,7 +215,7 @@ public class StockService {
         return prefix + suffix.toString();
     }
 
-    private String generateName() {
+    public String generateName() {
 
         Random random = new Random();
         int words = 1 + random.nextInt(3);
@@ -226,7 +246,7 @@ public class StockService {
     private double generateDouble(double minBound, double maxBound) {
 
         Random random = new Random();
-        return minBound + random.nextDouble() * (maxBound - minBound);
+        return Math.round((minBound + random.nextDouble() * (maxBound - minBound)) * 100.0) / 100.0;
     }
 
     public AudioSpeaker generateAudioSpeaker() {
@@ -332,7 +352,7 @@ public class StockService {
         Random random = new Random();
 
         Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("IT");
+        Category category = findCategory("IT");
 
         String id = generateId(distributor.getDistributorName().substring(0, 3));
         String name = generateName();
@@ -530,5 +550,21 @@ public class StockService {
         }
 
         return distributors[index];
+    }
+
+    public Product[] filterEqual(Filterable filterable, double value) {
+        return filterable.filterEqual(this.stock, value);
+    }
+
+    public Product[] filterInterval(Filterable filterable, double left, double right) {
+        return filterable.filterInterval(this.stock, left, right);
+    }
+
+    public Product[] filterLess(Filterable filterable, double value) {
+        return filterable.filterLess(this.stock, value);
+    }
+
+    public Product[] filterGreater(Filterable filterable, double value) {
+        return filterable.filterGreater(this.stock, value);
     }
 }

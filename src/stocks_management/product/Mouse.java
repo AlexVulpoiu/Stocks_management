@@ -23,7 +23,7 @@ public class Mouse extends Product {
     @Override
     public void showDescription() {
 
-        System.out.print(this.productName + ", ");
+        System.out.print("Mouse " + this.getProductDistributor().getDistributorName() + " " + this.productName + ", ");
 
         if(this.wireless) {
             System.out.println("wireless");

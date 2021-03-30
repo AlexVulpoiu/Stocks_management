@@ -12,7 +12,7 @@ public class GasCooker extends Product {
     @Override
     public void showDescription() {
 
-        System.out.println(this.productName + " gas cooker with " + this.warranty + " years warranty.");
+        System.out.println(this.productDistributor.getDistributorName() + " gas cooker " + this.productName + " with " + this.warranty + " years warranty.");
         System.out.println("\tPrice: " + this.price);
         if(this.stock > 0) {
             System.out.println("\tIn stock: " + this.stock + " pieces");

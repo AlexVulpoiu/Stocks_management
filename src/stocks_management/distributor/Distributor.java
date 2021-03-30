@@ -45,7 +45,7 @@ public class Distributor implements Comparable<Distributor> {
 
     public void showInformation() {
 
-        System.out.println("Distributor: " + this.distributorName);
+        System.out.println("Distributor: " + this.distributorName + ", country: " + this.country);
         for (Product product : this.products) {
             System.out.println("\t" + product);
         }

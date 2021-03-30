@@ -23,7 +23,7 @@ public class PowerBank extends Product {
     @Override
     public void showDescription() {
 
-        System.out.println(this.productName + " from " + this.productDistributor.getDistributorName());
+        System.out.println("Power bank " + this.productName + " from " + this.productDistributor.getDistributorName());
         System.out.println("\tHaving trouble with your phone battery? Here's the solution: the " + this.capacity + "mAh power bank!");
         System.out.println("\tNow at a special price: " + this.price + " euros");
         if(this.stock > 0) {

@@ -12,7 +12,7 @@ public class Smartwatch extends Product {
     @Override
     public void showDescription() {
 
-        System.out.println(this.productName);
+        System.out.println("Smartwatch " + this.getProductDistributor().getDistributorName() + " " + this.productName);
         System.out.println("\tNew functionalities provided + better battery for " + this.price + " euros");
         if(this.stock > 0) {
             System.out.println("\tIn stock: " + this.stock + " pieces");

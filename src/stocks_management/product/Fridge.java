@@ -73,7 +73,7 @@ public class Fridge extends Product {
     @Override
     public void showDescription() {
 
-        System.out.println(this.productName + " fridge with " + this.warranty + " years warranty!");
+        System.out.println(this.getProductDistributor().getDistributorName() + " fridge " + this.productName + " with " + this.warranty + " years warranty!");
         System.out.println("\tAdjustable temperature between " + minTemperature + " and " + maxTemperature + " Celsius degrees.");
 
         if(this.freezer) {

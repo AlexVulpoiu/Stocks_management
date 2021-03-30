@@ -53,7 +53,7 @@ public class AudioSystem extends Product {
     @Override
     public void showDescription() {
 
-        System.out.println(this.productName + " audio system from " + this.productDistributor.getDistributorName());
+        System.out.println("Audio System " + this.productName + " from " + this.productDistributor.getDistributorName());
         System.out.println("\tHaving " + this.power + "W power and " + this.numberOfPieces + " components, it's the best choice for a good party! Buy now for only " + this.price + " euros!");
 
         if(this.wireless && this.bluetooth) {

@@ -12,7 +12,7 @@ public class Headphones extends Product {
     @Override
     public void showDescription() {
 
-        System.out.println(this.productName + " headphones from " + this.productDistributor.getDistributorName());
+        System.out.println("Headphones " + this.productName + " from " + this.productDistributor.getDistributorName());
         System.out.println("\tAvailable in 3 different colors for " + this.price + " euros!");
         if(this.stock > 0) {
             System.out.println("\tIn stock: " + this.stock + " pieces");

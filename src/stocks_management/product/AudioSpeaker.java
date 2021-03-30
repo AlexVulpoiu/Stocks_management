@@ -43,7 +43,7 @@ public class AudioSpeaker extends Product {
     @Override
     public void showDescription() {
 
-        System.out.println(this.productName + " audio speaker from " + this.productDistributor.getDistributorName());
+        System.out.println("Audio speaker " + this.productName + " from " + this.productDistributor.getDistributorName());
         System.out.println("\tIt's the perfect choice for a trip, a small party or daily use. Buy it now for only " + this.price + " euros!");
 
         if(this.wireless && this.bluetooth) {

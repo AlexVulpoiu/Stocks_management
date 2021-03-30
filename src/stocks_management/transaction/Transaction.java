@@ -83,6 +83,7 @@ public class Transaction implements Comparable<Transaction> {
         }
 
         if(index != -1) {
+            total -= products[index].getPrice();
             products[index].setStock(products[index].getStock() + 1);
             products[index] = products[products.length - 1];
             products = Arrays.copyOf(products, products.length - 1);

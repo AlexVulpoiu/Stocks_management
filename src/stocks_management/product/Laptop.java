@@ -100,7 +100,7 @@ public class Laptop extends Product {
     @Override
     public void showDescription() {
 
-        System.out.println(this.productName + ", " + this.diagonal + " inches, " + this.cpu + ", " + this.graphicsCard);
+        System.out.println("Laptop " + this.getProductDistributor().getDistributorName() + " " + this.productName + ", " + this.diagonal + " inches, " + this.cpu + ", " + this.graphicsCard);
         System.out.println("\t" + this.ram  + "GB RAM, " + this.memory + "GB " + this.storageType + ", " + this.usbPorts + " USB ports");
         System.out.print("\tThe laptop has " + this.warranty + " years warranty and it's one of the best choices for " + this.category + ".");
 

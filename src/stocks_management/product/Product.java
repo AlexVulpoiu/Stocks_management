@@ -25,6 +25,8 @@ public abstract class Product implements Comparable<Product> {
         this.warranty = warranty;
         this.promotion = null;
         this.stock = 0;
+        productCategory.addProduct(this);
+        distributor.addProduct(this);
     }
 
     public String getProductId() {
@@ -109,13 +111,18 @@ public abstract class Product implements Comparable<Product> {
 
     @Override
     public String toString() {
+
+        String promo = "null";
+        if(this.promotion != null) {
+            promo = this.promotion.getProductName();
+        }
         return "Product{" +
                 "productId='" + productId + '\'' +
                 ", productName='" + productName + '\'' +
-                ", productCategory=" + productCategory +
-                ", productDistributor=" + productDistributor +
+                ", productCategory=" + productCategory.getCategoryName() +
+                ", productDistributor=" + productDistributor.getDistributorName() +
                 ", price=" + price +
-                ", promotion=" + promotion +
+                ", promotion=" + promo +
                 ", stock=" + stock +
                 ", warranty=" + warranty +
                 '}';

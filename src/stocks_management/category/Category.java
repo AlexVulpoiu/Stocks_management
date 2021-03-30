@@ -9,9 +9,9 @@ import java.util.Objects;
 
 public class Category implements Comparable<Category> {
 
-    public String categoryId;
-    public String categoryName;
-    public Product[] products;
+    private String categoryId;
+    private String categoryName;
+    private Product[] products;
 
     public Category(String categoryId, String categoryName) {
         this.categoryId = categoryId;
@@ -117,7 +117,6 @@ public class Category implements Comparable<Category> {
         return "Category{" +
                 "categoryId='" + categoryId + '\'' +
                 ", categoryName='" + categoryName + '\'' +
-                ", products=" + Arrays.toString(products) +
                 '}';
     }
 }

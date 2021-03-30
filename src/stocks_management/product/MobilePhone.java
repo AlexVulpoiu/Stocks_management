@@ -55,7 +55,7 @@ public class MobilePhone extends Product {
     @Override
     public void showDescription() {
 
-        System.out.println(this.productName + ", " + this.diagonal + " inches screen");
+        System.out.println("Phone " + this.getProductDistributor().getDistributorName() + " " + this.productName + ", " + this.diagonal + " inches screen");
         System.out.println("\t" + this.ram + "GB RAM, " + this.memory + " internal storage");
         System.out.println("\tTake the best photos with one of the " + this.numberOfCameras + " cameras at " + this.price + " euros!");
         if(this.promotion != null) {
