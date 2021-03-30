@@ -19,6 +19,10 @@ public class Distributor implements Comparable<Distributor> {
         this.products = new Product[0];
     }
 
+    public String getDistributorId() {
+        return distributorId;
+    }
+
     public String getDistributorName() {
         return distributorName;
     }

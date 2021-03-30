@@ -14,7 +14,7 @@ public class Laptop extends Product {
     private int usbPorts;
     private String category;
 
-    public Laptop(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String cpu, int ram, int memory, String storageType, String graphicsCard, int usbPorts, String category) {
+    public Laptop(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String cpu, int ram, int memory, String storageType, String graphicsCard, int usbPorts) {
         super(productId, productName, productCategory, distributor, price, warranty);
         this.diagonal = diagonal;
         this.cpu = cpu;
@@ -23,7 +23,14 @@ public class Laptop extends Product {
         this.storageType = storageType;
         this.graphicsCard = graphicsCard;
         this.usbPorts = usbPorts;
-        this.category = category;
+        if(this.ram < 8) {
+            this.category = "home";
+        }
+        else if(this.ram < 16) {
+            this.category = "business";
+        } else {
+            this.category = "gaming";
+        }
     }
 
     public double getDiagonal() {
@@ -95,7 +102,7 @@ public class Laptop extends Product {
 
         System.out.println(this.productName + ", " + this.diagonal + " inches, " + this.cpu + ", " + this.graphicsCard);
         System.out.println("\t" + this.ram  + "GB RAM, " + this.memory + "GB " + this.storageType + ", " + this.usbPorts + " USB ports");
-        System.out.print("\tThe laptop has " + this.warranty + " years warranty and is one of the best choices for " + this.category + ".");
+        System.out.print("\tThe laptop has " + this.warranty + " years warranty and it's one of the best choices for " + this.category + ".");
 
         if(this.promotion != null) {
             System.out.println("\tIf you buy now for " + this.price + ", we offer you for free: " + this.promotion.getProductName() + "!");
