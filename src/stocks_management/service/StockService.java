@@ -4,6 +4,7 @@ import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
 import stocks_management.product.*;
 import stocks_management.transaction.Transaction;
+import stocks_management.validator.Validator;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -72,6 +73,8 @@ public class StockService {
             stock[index] = stock[stock.length - 1];
             stock = Arrays.copyOf(stock, stock.length - 1);
             Arrays.sort(stock);
+        } else {
+            System.out.println("The product wasn't added to stock!");
         }
     }
 
@@ -90,7 +93,7 @@ public class StockService {
         Arrays.sort(stock);
         for(Product product : stock) {
             if(product.getPromotion() != null) {
-                System.out.println("\t" + product);
+                System.out.println("\t" + product.getProductName() + ", promotion: " + product.getPromotion().getProductName());
             }
         }
 
@@ -108,12 +111,11 @@ public class StockService {
 
     public void modifyPrice(Product product, double percent) {
 
-        product.setPrice(product.getPrice() * (1 + percent));
-        Category category = product.getProductCategory();
-
-        int index = binarySearch(product);
-        if(index != -1) {
-            stock[index].setPrice(stock[index].getPrice() * (1 + percent));
+        Validator validator = new Validator();
+        if(validator.validatePercent(percent)) {
+            product.setPrice(product.getPrice() * (1 + percent));
+        } else {
+            System.out.println("The price wasn't modified because it would have been negative!");
         }
     }
 

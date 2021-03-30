@@ -62,6 +62,7 @@ public class Transaction implements Comparable<Transaction> {
             System.out.println(product.getProductName() + " isn't currently available.");
         } else {
             total += product.getPrice();
+            product.setStock(product.getStock() - 1);
             products = Arrays.copyOf(products, products.length + 1);
             products[products.length - 1] = product;
         }
@@ -82,6 +83,7 @@ public class Transaction implements Comparable<Transaction> {
         }
 
         if(index != -1) {
+            products[index].setStock(products[index].getStock() + 1);
             products[index] = products[products.length - 1];
             products = Arrays.copyOf(products, products.length - 1);
         }
