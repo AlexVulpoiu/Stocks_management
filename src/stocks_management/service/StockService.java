@@ -21,7 +21,6 @@ public class StockService {
     private Transaction[] transactions;
 
     public StockService() {
-        totalIncome = 0.0;
         stock = new Product[0];
         distributors = new Distributor[0];
         categories = new Category[0];

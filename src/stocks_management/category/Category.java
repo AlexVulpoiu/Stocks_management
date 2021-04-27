@@ -35,39 +35,8 @@ public class Category implements Comparable<Category> {
         return products;
     }
 
-    public void addProduct(Product product) {
-
-        products = Arrays.copyOf(products, products.length + 1);
-        products[products.length - 1] = product;
-    }
-
-    public void removeProduct(Product product) {
-
-        int left, right, middle, index;
-
-        Arrays.sort(products);
-        left = 0;
-        right = products.length - 1;
-        index = -1;
-        while (left <= right) {
-
-            middle = left + (right - left) / 2;
-            if(products[middle].getProductName().equals(product.getProductName())) {
-                index = middle;
-                break;
-            } else if(products[middle].getProductName().compareTo(product.getProductName()) < 0) {
-                left = middle + 1;
-            } else {
-                right = middle - 1;
-            }
-        }
-
-        if(index != -1) {
-            Product auxProduct = products[index];
-            products[index] = products[products.length - 1];
-            products[products.length - 1] = auxProduct;
-            products = Arrays.copyOf(products, products.length - 1);
-        }
+    public void setProducts(Product[] products) {
+        this.products = products;
     }
 
     @Override
