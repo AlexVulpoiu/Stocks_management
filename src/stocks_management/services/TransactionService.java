@@ -1,6 +1,7 @@
-package stocks_management.transaction;
+package stocks_management.services;
 
 import stocks_management.product.Product;
+import stocks_management.transaction.Transaction;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

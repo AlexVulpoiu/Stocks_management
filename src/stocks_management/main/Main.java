@@ -2,12 +2,12 @@ package stocks_management.main;
 
 import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
-import stocks_management.distributor.DistributorService;
+import stocks_management.services.DistributorService;
 import stocks_management.product.*;
 import stocks_management.product.filterable.PriceFilter;
-import stocks_management.service.StockService;
+import stocks_management.services.StockService;
 import stocks_management.transaction.Transaction;
-import stocks_management.transaction.TransactionService;
+import stocks_management.services.TransactionService;
 import stocks_management.validator.Validator;
 
 import java.util.Arrays;

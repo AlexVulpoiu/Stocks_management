@@ -1,5 +1,6 @@
-package stocks_management.category;
+package stocks_management.services;
 
+import stocks_management.category.Category;
 import stocks_management.product.Product;
 
 import java.util.Arrays;

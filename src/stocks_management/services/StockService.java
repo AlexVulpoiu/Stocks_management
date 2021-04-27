@@ -1,11 +1,10 @@
-package stocks_management.service;
+package stocks_management.services;
 
 import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
 import stocks_management.product.*;
 import stocks_management.product.filterable.Filterable;
 import stocks_management.transaction.Transaction;
-import stocks_management.transaction.TransactionService;
 import stocks_management.validator.Validator;
 
 import java.util.Arrays;

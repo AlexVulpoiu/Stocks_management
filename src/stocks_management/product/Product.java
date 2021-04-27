@@ -1,9 +1,9 @@
 package stocks_management.product;
 
 import stocks_management.category.Category;
-import stocks_management.category.CategoryService;
+import stocks_management.services.CategoryService;
 import stocks_management.distributor.Distributor;
-import stocks_management.distributor.DistributorService;
+import stocks_management.services.DistributorService;
 
 import java.util.Objects;
 

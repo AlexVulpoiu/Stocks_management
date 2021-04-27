@@ -1,5 +1,6 @@
-package stocks_management.distributor;
+package stocks_management.services;
 
+import stocks_management.distributor.Distributor;
 import stocks_management.product.Product;
 
 import java.util.Arrays;
