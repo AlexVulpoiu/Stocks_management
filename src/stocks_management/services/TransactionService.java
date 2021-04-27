@@ -11,7 +11,6 @@ public class TransactionService {
 
     public void addProductToTransaction(Transaction transaction, Product product) {
 
-
         if(!transaction.isOpened()) {
             return;
         }
