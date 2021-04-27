@@ -115,6 +115,14 @@ public class Transaction implements Comparable<Transaction> {
         this.date = dtf.format(now);
     }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setOpened(boolean opened) {
+        this.opened = opened;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

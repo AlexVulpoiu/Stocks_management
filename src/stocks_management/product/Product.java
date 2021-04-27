@@ -1,7 +1,9 @@
 package stocks_management.product;
 
 import stocks_management.category.Category;
+import stocks_management.category.CategoryService;
 import stocks_management.distributor.Distributor;
+import stocks_management.distributor.DistributorService;
 
 import java.util.Objects;
 
@@ -17,6 +19,10 @@ public abstract class Product implements Comparable<Product> {
     protected int warranty;
 
     public Product(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
+
+        DistributorService distributorService = new DistributorService();
+        CategoryService categoryService = new CategoryService();
+
         this.productId = productId;
         this.productName = productName;
         this.productCategory = productCategory;

@@ -5,9 +5,9 @@ import stocks_management.distributor.Distributor;
 import stocks_management.product.*;
 import stocks_management.product.filterable.Filterable;
 import stocks_management.transaction.Transaction;
+import stocks_management.transaction.TransactionService;
 import stocks_management.validator.Validator;
 
-import java.nio.file.attribute.FileTime;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -196,9 +196,11 @@ public class StockService {
 
     public void showTransactions() {
 
+        TransactionService transactionService = new TransactionService();
+
         System.out.println("Current transactions: ");
         for(Transaction transaction : transactions) {
-            transaction.showTransaction();
+            transactionService.showTransaction(transaction);
         }
         System.out.println();
     }

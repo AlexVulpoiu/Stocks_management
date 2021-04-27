@@ -1,18 +1,17 @@
 package stocks_management.main;
 
-import com.sun.security.jgss.GSSUtil;
 import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
+import stocks_management.distributor.DistributorService;
 import stocks_management.product.*;
 import stocks_management.product.filterable.PriceFilter;
 import stocks_management.service.StockService;
 import stocks_management.transaction.Transaction;
+import stocks_management.transaction.TransactionService;
 import stocks_management.validator.Validator;
 
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Random;
-import java.util.zip.DeflaterInputStream;
 
 public class Main {
 
@@ -70,6 +69,8 @@ public class Main {
 
         Validator dataValidator = new Validator();
         StockService service = new StockService();
+        DistributorService distributorService = new DistributorService();
+        TransactionService transactionService = new TransactionService();
 
         // add categories and distributors
         addCategoriesAndDistributors(service);
@@ -136,7 +137,7 @@ public class Main {
         // show information about distributors
         Distributor[] distributors = service.getDistributors();
         for(Distributor distributor : distributors) {
-            distributor.showInformation();
+            distributorService.showInformationAboutDistributor(distributor);
         }
         System.out.println();
         System.out.println();
@@ -186,10 +187,10 @@ public class Main {
         // filter products by price
         Product[] productsTransactionOne = service.filterLess(new PriceFilter(), price);
         for(Product product : productsTransactionOne) {
-            transactionOne.addProduct(product);
+            transactionService.addProductToTransaction(transactionOne, product);
         }
-        transactionOne.closeTransaction();  // closing transaction
-        transactionOne.showTransaction();
+        transactionService.closeTransaction(transactionOne);
+        transactionService.showTransaction(transactionOne);
         System.out.println();
         System.out.println();
 
@@ -197,18 +198,20 @@ public class Main {
         price = random.nextDouble() * 800.0;
         Product[] productsTransactionTwo = service.filterGreater(new PriceFilter(), price);
         for(Product product : productsTransactionTwo) {
-            transactionTwo.addProduct(product);
+            transactionService.addProductToTransaction(transactionTwo, product);
             last = product;
         }
-        transactionTwo.showTransaction();
+        transactionService.showTransaction(transactionTwo);
         System.out.println();
         System.out.println();
 
         // remove a product from transaction
-        transactionTwo.removeProduct(last);
-        transactionTwo.closeTransaction();  // closing transaction
-        transactionTwo.addProduct(last);    // transaction is closed, so it won't be added
-        transactionTwo.showTransaction();
+        transactionService.removeProductFromTransaction(transactionTwo, last);
+        transactionService.closeTransaction(transactionTwo);
+        // transaction is closed, so it won't be added
+        transactionService.addProductToTransaction(transactionTwo, last);
+
+        transactionService.showTransaction(transactionTwo);
         System.out.println();
         System.out.println();
 
