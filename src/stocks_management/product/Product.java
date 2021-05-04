@@ -22,8 +22,6 @@ public abstract class Product implements Comparable<Product> {
 
     public Product(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
 
-        DistributorService distributorService = new DistributorService();
-        CategoryService categoryService = new CategoryService();
         StockService stockService = StockService.getInstance();
 
         numberOfProducts++;
@@ -34,9 +32,6 @@ public abstract class Product implements Comparable<Product> {
         this.productDistributor = distributor;
         this.price = price;
         this.warranty = warranty;
-        categoryService.addProductInCategory(productCategory, this);
-        distributorService.addProductToDistributor(distributor, this);
-        stockService.addProduct(this);
     }
 
     public String getProductId() {

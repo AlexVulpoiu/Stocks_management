@@ -23,7 +23,6 @@ public class Category implements Comparable<Category> {
         this.categoryId = stockService.generateId("CAT");
         this.categoryName = categoryName;
         this.products = new Product[0];
-        stockService.addCategory(this);
     }
 
     public String getCategoryId() {

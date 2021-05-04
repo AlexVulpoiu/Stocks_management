@@ -23,7 +23,6 @@ public class Distributor implements Comparable<Distributor> {
         this.distributorName = distributorName;
         this.country = country;
         this.products = new Product[0];
-        stockService.addDistributor(this);
     }
 
     public String getDistributorId() {

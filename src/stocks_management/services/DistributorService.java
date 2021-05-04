@@ -1,5 +1,6 @@
 package stocks_management.services;
 
+import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
 import stocks_management.product.Product;
 
@@ -31,13 +32,34 @@ public class DistributorService {
 
     public void addProductToDistributor(Distributor distributor, Product product) {
 
+        int index = findProductInDistributor(distributor, product);
         Product[] products = distributor.getProducts();
-        products = Arrays.copyOf(products, products.length + 1);
-        products[products.length - 1] = product;
-        distributor.setProducts(products);
+
+        if(index == -1) {
+            products = Arrays.copyOf(products, products.length + 1);
+            products[products.length - 1] = product;
+            distributor.setProducts(products);
+        } else {
+            int currentStock = products[index].getStock();
+            products[index].setStock(currentStock + product.getStock());
+        }
     }
 
     public void removeProductFromDistributor(Distributor distributor, Product product) {
+
+        int index = findProductInDistributor(distributor, product);
+        Product[] products = distributor.getProducts();
+
+        if(index != -1) {
+            Product auxProduct = products[index];
+            products[index] = products[products.length - 1];
+            products[products.length - 1] = auxProduct;
+            products = Arrays.copyOf(products, products.length - 1);
+        }
+        distributor.setProducts(products);
+    }
+
+    private int findProductInDistributor(Distributor distributor, Product product) {
 
         int left, right, middle, index;
 
@@ -59,12 +81,6 @@ public class DistributorService {
             }
         }
 
-        if(index != -1) {
-            Product auxProduct = products[index];
-            products[index] = products[products.length - 1];
-            products[products.length - 1] = auxProduct;
-            products = Arrays.copyOf(products, products.length - 1);
-        }
-        distributor.setProducts(products);
+        return index;
     }
 }

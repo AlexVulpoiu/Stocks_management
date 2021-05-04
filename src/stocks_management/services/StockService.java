@@ -55,14 +55,23 @@ public class StockService {
 
     public void addProduct(Product product) {
 
+        CategoryService categoryService = CategoryService.getInstance();
+        DistributorService distributorService = DistributorService.getInstance();
+
+        Category category = product.getProductCategory();
+        Distributor distributor = product.getProductDistributor();
+
+        categoryService.addProductInCategory(category, product);
+        distributorService.addProductToDistributor(distributor, product);
+
         int index = stock.indexOf(product);
         if(index == -1) {
 
             stock.add(product);
 
-            String categoryName = product.getProductCategory().getCategoryName();
-            Distributor distributor = product.getProductDistributor();
+            String categoryName = category.getCategoryName();
             Set<String> keys = distributorsForCategory.keySet();
+
 
             if(keys.contains(categoryName)) {
 

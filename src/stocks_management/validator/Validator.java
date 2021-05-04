@@ -7,10 +7,6 @@ import stocks_management.product.Product;
 
 public class Validator {    /// for input validation
 
-    public boolean validateId(String id) {
-        return id.matches("^[A-Z]{3}[0-9]{7}$");
-    }
-
     public boolean validateName(String name) {
         return name.matches("^([A-Z][a-z]{2,}(\\s)*)+[0-9]{0,3}$");
     }
@@ -23,58 +19,55 @@ public class Validator {    /// for input validation
         return percent > -1.0;
     }
 
-    public void validateProduct(Product product) {
+    public boolean validateStocks(int stock) { return stock >= 0; }
 
-        boolean invalid = false;
-        if(!validateId(product.getProductId())) {
-            invalid = true;
-            System.out.println("Id " + product.getProductId() + " is invalid!");
-        }
+    public boolean validateWarranty(int warranty) { return warranty >= 0; }
+
+    public boolean validateProduct(Product product) {
+
+        boolean valid = true;
+
         if(!validateName(product.getProductName())) {
-            invalid = true;
+            valid = false;
             System.out.println("Name " + product.getProductName() + " is invalid!");
         }
         if(!validatePrice(product.getPrice())) {
-            invalid = true;
+            valid = false;
             System.out.println("The price can't be negative!");
         }
-
-        if(!invalid) {
-            System.out.println("The product is valid!");
+        if(!validateStocks(product.getStock())) {
+            valid = false;
+            System.out.println("The number of pieces for any product should be a positive integer!");
         }
+        if(!validateWarranty(product.getWarranty())) {
+            valid = false;
+            System.out.println("The warranty should be a positive integer!");
+        }
+
+        return valid;
     }
 
-    public void validateCategory(Category category) {
+    public boolean validateCategory(Category category) {
 
-        boolean invalid = false;
-        if(!validateId(category.getCategoryId())) {
-            invalid = true;
-            System.out.println("Id " + category.getCategoryId() + " is invalid!");
-        }
+        boolean valid = true;
+
         if(!validateName(category.getCategoryName())) {
-            invalid = true;
+            valid = false;
             System.out.println("Name " + category.getCategoryName() + " is invalid!");
         }
 
-        if(!invalid) {
-            System.out.println("The category is valid!");
-        }
+        return valid;
     }
 
-    public void validateDistributor(Distributor distributor) {
+    public boolean validateDistributor(Distributor distributor) {
 
-        boolean invalid = false;
-        if(!validateId(distributor.getDistributorId())) {
-            invalid = true;
-            System.out.println("Id " + distributor.getDistributorId() + " is invalid!");
-        }
+        boolean valid = true;
+
         if(!validateName(distributor.getDistributorName())) {
-            invalid = true;
+            valid = false;
             System.out.println("Name " + distributor.getDistributorName() + " is invalid!");
         }
 
-        if(!invalid) {
-            System.out.println("The distributor is valid!");
-        }
+        return valid;
     }
 }
