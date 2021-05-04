@@ -54,7 +54,7 @@ public class AudioSystem extends Product {
     public void showDescription() {
 
         System.out.println("Audio System " + this.productName + " from " + this.productDistributor.getDistributorName());
-        System.out.println("\tHaving " + this.power + "W power and " + this.numberOfPieces + " components, it's the best choice for a good party! Buy now for only " + this.price + " euros!");
+        System.out.println("\tHaving " + this.power + "W power and " + this.numberOfPieces + " components, it's the best choice for a good party! Buy now for only " + this.price + " RON!");
 
         if(this.wireless && this.bluetooth) {
             System.out.println("\tYou can use it wireless or via bluetooth!");

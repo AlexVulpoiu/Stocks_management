@@ -7,6 +7,19 @@ import java.util.Arrays;
 
 public class CategoryService {
 
+    private static CategoryService instance = null;
+
+    private CategoryService() {}
+
+    public static CategoryService getInstance() {
+
+        if(instance == null) {
+            instance = new CategoryService();
+        }
+
+        return instance;
+    }
+
     public void addProductInCategory(Category category, Product product) {
 
         Product[] products = category.getProducts();

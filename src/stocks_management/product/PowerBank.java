@@ -25,7 +25,7 @@ public class PowerBank extends Product {
 
         System.out.println("Power bank " + this.productName + " from " + this.productDistributor.getDistributorName());
         System.out.println("\tHaving trouble with your phone battery? Here's the solution: the " + this.capacity + "mAh power bank!");
-        System.out.println("\tNow at a special price: " + this.price + " euros");
+        System.out.println("\tNow at a special price: " + this.price + " RON");
         if(this.stock > 0) {
             System.out.println("\tIn stock: " + this.stock + " pieces");
         } else {

@@ -107,7 +107,7 @@ public class Laptop extends Product {
         if(this.promotion != null) {
             System.out.println("\tIf you buy now for " + this.price + ", we offer you for free: " + this.promotion.getProductName() + "!");
         } else {
-            System.out.println("\tBuy now for " + this.price + " euros");
+            System.out.println("\tBuy now for " + this.price + " RON");
         }
 
         if(this.stock > 0) {

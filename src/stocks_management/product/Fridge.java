@@ -80,7 +80,7 @@ public class Fridge extends Product {
             System.out.print("\tFreezer included.");
         }
 
-        System.out.println("\tBuy now for " + this.price + " euros!");
+        System.out.println("\tBuy now for " + this.price + " RON!");
 
         if(this.stock > 0) {
             System.out.println("\tIn stock: " + this.stock + " pieces");

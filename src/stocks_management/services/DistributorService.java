@@ -7,6 +7,19 @@ import java.util.Arrays;
 
 public class DistributorService {
 
+    private static DistributorService instance = null;
+
+    private DistributorService() {}
+
+    public static DistributorService getInstance() {
+
+        if(instance == null) {
+            instance = new DistributorService();
+        }
+
+        return instance;
+    }
+
     public void showInformationAboutDistributor(Distributor distributor) {
 
         System.out.println("Distributor: " + distributor.getDistributorName() + ", country: " + distributor.getCountry());

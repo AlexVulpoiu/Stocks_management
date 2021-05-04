@@ -13,7 +13,7 @@ public class Headphones extends Product {
     public void showDescription() {
 
         System.out.println("Headphones " + this.productName + " from " + this.productDistributor.getDistributorName());
-        System.out.println("\tAvailable in 3 different colors for " + this.price + " euros!");
+        System.out.println("\tAvailable in 3 different colors for " + this.price + " RON!");
         if(this.stock > 0) {
             System.out.println("\tIn stock: " + this.stock + " pieces");
         } else {

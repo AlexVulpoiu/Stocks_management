@@ -48,7 +48,7 @@ public class TV extends Product {
     public void showDescription() {
 
         System.out.println("TV " + this.getProductDistributor().getDistributorName() + " " + this.productName);
-        System.out.println("\tHaving " + this.diagonal + " inches diagonal and " + this.resolution + " resolution, it's a good choice for your " + this.room + " at " + this.price + " euros!");
+        System.out.println("\tHaving " + this.diagonal + " inches diagonal and " + this.resolution + " resolution, it's a good choice for your " + this.room + " at " + this.price + " RON!");
         if(this.stock > 0) {
             System.out.println("\tIn stock: " + this.stock + " pieces");
         } else {

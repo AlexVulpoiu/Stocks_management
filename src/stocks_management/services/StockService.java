@@ -85,7 +85,12 @@ public class StockService {
 
     public void removeProduct(Product product) {
 
+        CategoryService categoryService = CategoryService.getInstance();
+        DistributorService distributorService = DistributorService.getInstance();
+
         stock.remove(product);
+        categoryService.removeProductFromCategory(product.getProductCategory(), product);
+        distributorService.removeProductFromDistributor(product.getProductDistributor(), product);
     }
 
     public void applyPromotion(Product product, Product promotion) {
@@ -193,7 +198,7 @@ public class StockService {
 
     public void showTransactions() {
 
-        TransactionService transactionService = new TransactionService();
+        TransactionService transactionService = TransactionService.getInstance();
 
         System.out.println("Current transactions: ");
         for(Transaction transaction : transactions) {
@@ -276,7 +281,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(40, 200);
+        double price = generateDouble(200, 1500);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         int power = 50 + random.nextInt(200);
@@ -301,7 +306,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(400, 1000);
+        double price = generateDouble(500, 5000);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         int power = 500 + random.nextInt(1000);
@@ -327,7 +332,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(200, 1500);
+        double price = generateDouble(800, 4000);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         int minTemp = random.nextInt(4);
@@ -355,7 +360,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(200, 500);
+        double price = generateDouble(800, 2500);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
 
@@ -377,7 +382,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(10, 200);
+        double price = generateDouble(20, 1500);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
 
@@ -399,13 +404,13 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(400, 2000);
+        double price = generateDouble(1800, 10000);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         double diagonal = generateDouble(12.0, 18.0);
         String[] cpus = {"Intel Core i7", "Intel Core i5", "Intel Core i9", "Intel Core i3"};
         String cpu = cpus[random.nextInt(cpus.length)];
-        int ram = 4 + random.nextInt(30);
+        int ram = 4 + random.nextInt(28);
         int memory = 100 + random.nextInt(900);
         String[] storageTypes = {"SSD", "HDD"};
         String storageType = storageTypes[random.nextInt(storageTypes.length)];
@@ -431,7 +436,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(200, 1400);
+        double price = generateDouble(1500, 7000);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         double diagonal = generateDouble(5.0, 8.0);
@@ -457,7 +462,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(10, 50);
+        double price = generateDouble(30, 500);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         boolean wireless = random.nextBoolean();
@@ -480,7 +485,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(50, 150);
+        double price = generateDouble(50, 400);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         int capacity = random.nextInt(10000) + 1000;
@@ -503,7 +508,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(400, 2000);
+        double price = generateDouble(800, 3000);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
 
@@ -525,7 +530,7 @@ public class StockService {
         Category category = categories.get(index);
 
         String name = generateName();
-        double price = generateDouble(400, 2000);
+        double price = generateDouble(1500, 9000);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         double diagonal = generateDouble(27.0, 60.0);

@@ -13,7 +13,7 @@ public class Smartwatch extends Product {
     public void showDescription() {
 
         System.out.println("Smartwatch " + this.getProductDistributor().getDistributorName() + " " + this.productName);
-        System.out.println("\tNew functionalities provided + better battery for " + this.price + " euros");
+        System.out.println("\tNew functionalities provided + better battery for " + this.price + " RON");
         if(this.stock > 0) {
             System.out.println("\tIn stock: " + this.stock + " pieces");
         } else {

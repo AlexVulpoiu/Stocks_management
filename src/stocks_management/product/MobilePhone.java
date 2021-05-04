@@ -57,7 +57,7 @@ public class MobilePhone extends Product {
 
         System.out.println("Phone " + this.getProductDistributor().getDistributorName() + " " + this.productName + ", " + this.diagonal + " inches screen");
         System.out.println("\t" + this.ram + "GB RAM, " + this.memory + " internal storage");
-        System.out.println("\tTake the best photos with one of the " + this.numberOfCameras + " cameras at " + this.price + " euros!");
+        System.out.println("\tTake the best photos with one of the " + this.numberOfCameras + " cameras at " + this.price + " RON!");
         if(this.promotion != null) {
             System.out.println("\tFor the same amount of money, we have a special offer: " + this.promotion.getProductName());
         }
