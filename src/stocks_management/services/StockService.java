@@ -7,108 +7,100 @@ import stocks_management.product.filterable.Filterable;
 import stocks_management.transaction.Transaction;
 import stocks_management.validator.Validator;
 
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 
 public class StockService {
 
+    public static StockService instance = null;
     private double totalIncome;
-    private Product[] stock;
-    private Distributor[] distributors;
-    private Category[] categories;
-    private Transaction[] transactions;
+    private List<Product> stock;
+    private Set<Distributor> distributors;
+    private List<Category> categories;
+    private List<Transaction> transactions;
+    private Map<String, List<Distributor>> distributorsForCategory;
 
-    public StockService() {
-        stock = new Product[0];
-        distributors = new Distributor[0];
-        categories = new Category[0];
-        transactions = new Transaction[0];
+    public static StockService getInstance() {
+
+        if(instance == null) {
+            instance = new StockService();
+        }
+        return instance;
     }
 
-    public Product[] getStock() {
+    private StockService() {
+
+        stock = new ArrayList<>();
+        distributors = new TreeSet<>();
+        categories = new ArrayList<>();
+        transactions = new ArrayList<>();
+        distributorsForCategory = new HashMap<>();
+    }
+
+    public List<Product> getStock() {
         return stock;
     }
 
-    public Distributor[] getDistributors() {
+    public Set<Distributor> getDistributors() {
         return distributors;
     }
 
-    public Category[] getCategories() {
+    public List<Category> getCategories() {
         return categories;
     }
 
-    public Transaction[] getTransactions() {
+    public List<Transaction> getTransactions() {
         return transactions;
-    }
-
-    private int binarySearch(Product product) {
-
-        int left, right, middle, index;
-
-        Arrays.sort(stock);
-        left = 0;
-        right = stock.length - 1;
-        index = -1;
-
-        while(left <= right) {
-
-            middle = left + (right - left) / 2;
-            if(stock[middle].getProductName().equals(product.getProductName())) {
-                index = middle;
-                break;
-            } else if(stock[middle].getProductName().compareTo(product.getProductName()) < 0) {
-                left = middle + 1;
-            } else {
-                right = middle - 1;
-            }
-        }
-
-        return index;
     }
 
     public void addProduct(Product product) {
 
-        int index = binarySearch(product);
-
+        int index = stock.indexOf(product);
         if(index == -1) {
-            stock = Arrays.copyOf(stock, stock.length + 1);
-            stock[stock.length - 1] = product;
-            Arrays.sort(stock);
+
+            stock.add(product);
+
+            String categoryName = product.getProductCategory().getCategoryName();
+            Distributor distributor = product.getProductDistributor();
+            Set<String> keys = distributorsForCategory.keySet();
+
+            if(keys.contains(categoryName)) {
+
+                List<Distributor> currentDistributors = distributorsForCategory.get(categoryName);
+                if(!currentDistributors.contains(distributor)) {
+                    currentDistributors.add(distributor);
+                }
+
+            } else {
+                List<Distributor> newDistributors = new ArrayList<>();
+                newDistributors.add(distributor);
+                distributorsForCategory.put(categoryName, newDistributors);
+            }
+
         } else {
-            stock[index].setPrice(product.getPrice());
-            stock[index].setStock(stock[index].getStock() + product.getStock());
-            stock[index].setPromotion(product.getPromotion());
+            int current_stock = stock.get(index).getStock();
+            stock.get(index).setStock(current_stock + product.getStock());
         }
     }
 
     public void removeProduct(Product product) {
 
-        int index = binarySearch(product);
-
-        if(index != -1) {
-            stock[index] = stock[stock.length - 1];
-            stock = Arrays.copyOf(stock, stock.length - 1);
-            Arrays.sort(stock);
-            System.out.println("Product " + product.getProductName() + " removed from stock!");
-        } else {
-            System.out.println("The product wasn't added to stock!");
-        }
+        stock.remove(product);
     }
 
     public void applyPromotion(Product product, Product promotion) {
 
-        int index = binarySearch(product);
+        int index = stock.indexOf(product);
 
         if(index != -1) {
-            stock[index].setPromotion(promotion);
+            stock.get(index).setPromotion(promotion);
         }
     }
 
     public void showPromotionalProducts() {
 
         System.out.println("Promotional products: ");
-        Arrays.sort(stock);
+        Collections.sort(stock);
         for(Product product : stock) {
             if(product.getPromotion() != null) {
                 System.out.println("\t" + product.getProductName() + ", promotion: " + product.getPromotion().getProductName());
@@ -139,35 +131,41 @@ public class StockService {
 
     public void modifyPrice(Category category, double percent) {
 
-        for (Product product : stock) {
-            if (product.getProductCategory().getCategoryName().equals(category.getCategoryName())) {
+        Validator validator = new Validator();
+        Product[] products = category.getProducts();
+
+        if(!validator.validatePercent(percent)) {
+            System.out.println("The price wasn't modified because it would have been negative!");
+
+        } else {
+            for(Product product : products) {
                 product.setPrice(product.getPrice() * (1 + percent));
             }
         }
     }
 
     public void addCategory(Category category) {
-        this.categories = Arrays.copyOf(this.categories, this.categories.length + 1);
-        this.categories[this.categories.length - 1] = category;
-        Arrays.sort(categories);
+
+        if(!categories.contains(category)) {
+            this.categories.add(category);
+        }
     }
 
     public void addDistributor(Distributor distributor) {
-        this.distributors = Arrays.copyOf(this.distributors, this.distributors.length + 1);
-        this.distributors[this.distributors.length - 1] = distributor;
-        Arrays.sort(distributors);
+
+        if(!distributors.contains(distributor)) {
+            this.distributors.add(distributor);
+        }
     }
 
     public void addTransaction(Transaction transaction) {
-
-        this.transactions = Arrays.copyOf(this.transactions, this.transactions.length + 1);
-        this.transactions[transactions.length - 1] = transaction;
-        Arrays.sort(transactions);
+        this.transactions.add(transaction);
     }
 
     public void showStock() {
 
         System.out.println("Current stocks:");
+        Collections.sort(stock);
         for(Product product: stock) {
             System.out.println(product);
         }
@@ -176,6 +174,7 @@ public class StockService {
 
     public void showCategories() {
 
+        Collections.sort(categories);
         System.out.println("Current categories:");
         for(Category category : categories) {
             System.out.println(category);
@@ -205,20 +204,35 @@ public class StockService {
 
     public String generateId(String prefix) {
 
-        String allowedChars = "0123456789";
-        StringBuilder suffix = new StringBuilder();
-        Random random = new Random();
-        for(int i = 0; i < 7; i++) {
-            suffix.append(allowedChars.charAt(random.nextInt(10)));
+        StringBuilder id = new StringBuilder(prefix);
+
+        int number;
+        if(prefix.equals("PROD")){
+            number = Product.getNumberOfProducts();
+        } else if(prefix.equals("CAT")) {
+            number = Category.getNumberOfCategories();
+        } else {
+            number = Distributor.getNumberOfDistributors();
         }
 
-        return prefix + suffix.toString();
+        int aux = number, digits = 0;
+        while(aux != 0) {
+            digits++;
+            aux /= 10;
+        }
+        while(digits < 10) {    // adding extra zeros to productId, such that all ids have the same number of digits(10)
+            id.append("0");
+            digits--;
+        }
+        id.append(number);
+
+        return id.toString();
     }
 
     public String generateName() {
 
         Random random = new Random();
-        int words = 1 + random.nextInt(3);
+        int words = 1 + random.nextInt(2);
         StringBuilder name = new StringBuilder();
         for(int i = 0; i < words; i++) {
 
@@ -253,33 +267,41 @@ public class StockService {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("Audio");
+        List<Distributor> currentDistributors = distributorsForCategory.get("Audio");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "Audio"));
+        // equality for 2 Category objects is checks their names, so we can provide any id for the parameter object
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(40, 200);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         int power = 50 + random.nextInt(200);
         boolean wireless = random.nextBoolean();
         boolean bluetooth = random.nextBoolean();
 
-        return new AudioSpeaker(id, name, category, distributor, price, warranty, power, wireless, bluetooth);
+        AudioSpeaker audioSpeaker = new AudioSpeaker(stock, name, category, distributor, price, warranty, power, wireless, bluetooth);
+        addProduct(audioSpeaker);
+
+        return audioSpeaker;
     }
 
     public AudioSystem generateAudioSystem() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("Audio");
+        List<Distributor> currentDistributors = distributorsForCategory.get("Audio");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "Audio"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(400, 1000);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         int power = 500 + random.nextInt(1000);
@@ -287,20 +309,25 @@ public class StockService {
         boolean wireless = random.nextBoolean();
         boolean bluetooth = random.nextBoolean();
 
-        return new AudioSystem(id, name, category, distributor, price, warranty, power, pieces, wireless, bluetooth);
+        AudioSystem audioSystem = new AudioSystem(stock, name, category, distributor, price, warranty, power, pieces, wireless, bluetooth);
+        addProduct(audioSystem);
+
+        return audioSystem;
     }
 
     public Fridge generateFridge() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("Appliances");
+        List<Distributor> currentDistributors = distributorsForCategory.get("Appliances");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "Appliances"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(200, 1500);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         int minTemp = random.nextInt(4);
@@ -310,54 +337,69 @@ public class StockService {
         double length = generateDouble(0.6, 1.0);
         boolean freezer = random.nextBoolean();
 
-        return new Fridge(id, name, category, distributor, price, warranty, minTemp, maxTemp, height, width, length, freezer);
+        Fridge fridge = new Fridge(stock, name, category, distributor, price, warranty, minTemp, maxTemp, height, width, length, freezer);
+        addProduct(fridge);
+
+        return fridge;
     }
 
     public GasCooker generateGasCooker() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("Appliances");
+        List<Distributor> currentDistributors = distributorsForCategory.get("Appliances");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "Appliances"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(200, 500);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
 
-        return new GasCooker(id, name, category, distributor, price, warranty);
+        GasCooker gasCooker = new GasCooker(stock, name, category, distributor, price, warranty);
+        addProduct(gasCooker);
+
+        return gasCooker;
     }
 
     public Headphones generateHeadphones() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("Audio");
+        List<Distributor> currentDistributors = distributorsForCategory.get("Accessories");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "Accessories"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(10, 200);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
 
-        return new Headphones(id, name, category, distributor, price, warranty);
+        Headphones headphones = new Headphones(stock, name, category, distributor, price, warranty);
+        addProduct(headphones);
+
+        return headphones;
     }
 
     public Laptop generateLaptop() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category = findCategory("IT");
+        List<Distributor> currentDistributors = distributorsForCategory.get("IT");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "IT"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(400, 2000);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         double diagonal = generateDouble(12.0, 18.0);
@@ -371,20 +413,25 @@ public class StockService {
         String graphicsCard = graphicsCards[random.nextInt(graphicsCards.length)];
         int usbPorts = 1 + random.nextInt(4);
 
-        return new Laptop(id, name, category, distributor, price, warranty, diagonal, cpu, ram, memory, storageType, graphicsCard, usbPorts);
+        Laptop laptop = new Laptop(stock, name, category, distributor, price, warranty, diagonal, cpu, ram, memory, storageType, graphicsCard, usbPorts);
+        addProduct(laptop);
+
+        return laptop;
     }
 
     public MobilePhone generateMobilePhone() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("IT");
+        List<Distributor> currentDistributors = distributorsForCategory.get("IT");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "IT"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(200, 1400);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         double diagonal = generateDouble(5.0, 8.0);
@@ -392,125 +439,119 @@ public class StockService {
         int memory = 100 + random.nextInt(300);
         int cameras = 1 + random.nextInt(4);
 
-        return new MobilePhone(id, name, category, distributor, price, warranty, diagonal, ram, memory, cameras);
+        MobilePhone mobilePhone = new MobilePhone(stock, name, category, distributor, price, warranty, diagonal, ram, memory, cameras);
+        addProduct(mobilePhone);
+
+        return mobilePhone;
     }
 
     public Mouse generateMouse() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("IT");
+        List<Distributor> currentDistributors = distributorsForCategory.get("Accessories");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "Accessories"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(10, 50);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         boolean wireless = random.nextBoolean();
 
-        return new Mouse(id, name, category, distributor, price, warranty, wireless);
+        Mouse mouse = new Mouse(stock, name, category, distributor, price, warranty, wireless);
+        addProduct(mouse);
+
+        return mouse;
     }
 
     public PowerBank generatePowerBank() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("IT");
+        List<Distributor> currentDistributors = distributorsForCategory.get("Accessories");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "Accessories"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(50, 150);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         int capacity = random.nextInt(10000) + 1000;
 
-        return new PowerBank(id, name, category, distributor, price, warranty, capacity);
+        PowerBank powerBank = new PowerBank(stock, name, category, distributor, price, warranty, capacity);
+        addProduct(powerBank);
+
+        return powerBank;
     }
 
     public Smartwatch generateSmartwatch() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("IT");
+        List<Distributor> currentDistributors = distributorsForCategory.get("Accessories");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "Accessories"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(400, 2000);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
 
-        return new Smartwatch(id, name, category, distributor, price, warranty);
+        Smartwatch smartwatch = new Smartwatch(stock, name, category, distributor, price, warranty);
+        addProduct(smartwatch);
+
+        return smartwatch;
     }
 
     public TV generateTV() {
 
         Random random = new Random();
 
-        Distributor distributor = distributors[random.nextInt(distributors.length)];
-        Category category =  findCategory("TV");
+        List<Distributor> currentDistributors = distributorsForCategory.get("TV");
+        int randomIndex = random.nextInt(currentDistributors.size());
+        Distributor distributor = currentDistributors.get(randomIndex);
 
-        String id = generateId(distributor.getDistributorName().substring(0, 3));
+        int index = categories.indexOf(new Category("0", "TV"));
+        Category category = categories.get(index);
+
         String name = generateName();
         double price = generateDouble(400, 2000);
-        Product promotion = null;
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
         double diagonal = generateDouble(27.0, 60.0);
         String[] resolutions = {"Full HD", "8K", "HD", "4K"};
         String resolution = resolutions[random.nextInt(resolutions.length)];
 
-        return new TV(id, name, category, distributor, price, warranty, diagonal, resolution);
-    }
+        TV tv = new TV(stock, name, category, distributor, price, warranty, diagonal, resolution);
+        addProduct(tv);
 
-    public Category findCategory(String name) {
-
-        int left, right, middle, index;
-
-        Arrays.sort(categories);
-        left = 0;
-        right = categories.length - 1;
-        index = -1;
-        while(left <= right) {
-
-            middle = left + (right - left) / 2;
-            if(categories[middle].getCategoryName().equals(name)) {
-                index = middle;
-                break;
-            } else if(categories[middle].getCategoryName().compareTo(name) < 0) {
-                left = middle + 1;
-            } else {
-                right = middle - 1;
-            }
-        }
-
-        if(index == -1) {
-            return  null;
-        }
-
-        return categories[index];
+        return tv;
     }
 
     public Product findProduct(String name) {
 
-        int left, right, middle, index;
+        int index, left, right, middle;
 
-        Arrays.sort(stock);
-        left = 0;
-        right = stock.length - 1;
+        Collections.sort(stock);
         index = -1;
+        left = 0;
+        right = stock.size() - 1;
         while(left <= right) {
-
             middle = left + (right - left) / 2;
-            if(stock[middle].getProductName().equals(name)) {
+            if(stock.get(middle).getProductName().equals(name)) {
                 index = middle;
                 break;
-            } else if(stock[middle].getProductName().compareTo(name) < 0) {
+            } else if(stock.get(middle).getProductName().compareTo(name) < 0) {
                 left = middle + 1;
             } else {
                 right = middle - 1;
@@ -518,27 +559,27 @@ public class StockService {
         }
 
         if(index == -1) {
-            return  null;
+            System.out.println("The product named " + name + " doesn't exist!");
+            return null;
         }
 
-        return stock[index];
+        return stock.get(index);
     }
 
-    public Distributor findDistributor(String name) {
+    public Category findCategory(String name) {
 
-        int left, right, middle, index;
+        int index, left, right, middle;
 
-        Arrays.sort(distributors);
-        left = 0;
-        right = distributors.length - 1;
+        Collections.sort(categories);
         index = -1;
+        left = 0;
+        right = categories.size() - 1;
         while(left <= right) {
-
             middle = left + (right - left) / 2;
-            if(distributors[middle].getDistributorName().equals(name)) {
+            if(categories.get(middle).getCategoryName().equals(name)) {
                 index = middle;
                 break;
-            } else if(distributors[middle].getDistributorName().compareTo(name) < 0) {
+            } else if(categories.get(middle).getCategoryName().compareTo(name) < 0) {
                 left = middle + 1;
             } else {
                 right = middle - 1;
@@ -546,10 +587,11 @@ public class StockService {
         }
 
         if(index == -1) {
-            return  null;
+            System.out.println("The category named " + name + " doesn't exist!");
+            return null;
         }
 
-        return distributors[index];
+        return categories.get(index);
     }
 
     public Product[] filterEqual(Filterable filterable, double value) {

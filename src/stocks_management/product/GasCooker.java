@@ -5,8 +5,8 @@ import stocks_management.distributor.Distributor;
 
 public class GasCooker extends Product {
 
-    public GasCooker(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
-        super(productId, productName, productCategory, distributor, price, warranty);
+    public GasCooker(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
+        super(stock, productName, productCategory, distributor, price, warranty);
     }
 
     @Override

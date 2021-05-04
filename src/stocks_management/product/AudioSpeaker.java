@@ -9,8 +9,8 @@ public class AudioSpeaker extends Product {
     private boolean wireless;
     private boolean bluetooth;
 
-    public AudioSpeaker(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty, int power, boolean wireless, boolean bluetooth) {
-        super(productId, productName, productCategory, distributor, price, warranty);
+    public AudioSpeaker(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, int power, boolean wireless, boolean bluetooth) {
+        super(stock, productName, productCategory, distributor, price, warranty);
         this.power = power;
         this.wireless = wireless;
         this.bluetooth = bluetooth;

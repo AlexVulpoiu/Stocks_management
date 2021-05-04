@@ -1,6 +1,7 @@
 package stocks_management.distributor;
 
 import stocks_management.product.Product;
+import stocks_management.services.StockService;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -11,12 +12,18 @@ public class Distributor implements Comparable<Distributor> {
     private String distributorName;
     private String country;
     private Product[] products;
+    private static int numberOfDistributors = 0;
 
     public Distributor(String distributorId, String distributorName, String country) {
-        this.distributorId = distributorId;
+
+        StockService stockService = StockService.getInstance();
+
+        numberOfDistributors++;
+        this.distributorId = stockService.generateId("DIST");
         this.distributorName = distributorName;
         this.country = country;
         this.products = new Product[0];
+        stockService.addDistributor(this);
     }
 
     public String getDistributorId() {
@@ -45,6 +52,10 @@ public class Distributor implements Comparable<Distributor> {
 
     public void setProducts(Product[] products) {
         this.products = products;
+    }
+
+    public static int getNumberOfDistributors() {
+        return numberOfDistributors;
     }
 
     @Override

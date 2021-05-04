@@ -14,8 +14,8 @@ public class Laptop extends Product {
     private int usbPorts;
     private String category;
 
-    public Laptop(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String cpu, int ram, int memory, String storageType, String graphicsCard, int usbPorts) {
-        super(productId, productName, productCategory, distributor, price, warranty);
+    public Laptop(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String cpu, int ram, int memory, String storageType, String graphicsCard, int usbPorts) {
+        super(stock, productName, productCategory, distributor, price, warranty);
         this.diagonal = diagonal;
         this.cpu = cpu;
         this.ram = ram;

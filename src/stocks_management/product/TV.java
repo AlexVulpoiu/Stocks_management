@@ -9,8 +9,8 @@ public class TV extends Product {
     private String resolution;
     private String room;
 
-    public TV(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String resolution) {
-        super(productId, productName, productCategory, distributor, price, warranty);
+    public TV(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String resolution) {
+        super(stock, productName, productCategory, distributor, price, warranty);
         this.diagonal = diagonal;
         this.resolution = resolution;
         if(this.diagonal <= 40) {

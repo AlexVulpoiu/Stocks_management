@@ -4,6 +4,7 @@ import stocks_management.category.Category;
 import stocks_management.services.CategoryService;
 import stocks_management.distributor.Distributor;
 import stocks_management.services.DistributorService;
+import stocks_management.services.StockService;
 
 import java.util.Objects;
 
@@ -17,13 +18,17 @@ public abstract class Product implements Comparable<Product> {
     protected Product promotion;
     protected int stock;
     protected int warranty;
+    protected static int numberOfProducts = 0;
 
-    public Product(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
+    public Product(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
 
         DistributorService distributorService = new DistributorService();
         CategoryService categoryService = new CategoryService();
+        StockService stockService = StockService.getInstance();
 
-        this.productId = productId;
+        numberOfProducts++;
+        this.stock = stock;
+        this.productId = stockService.generateId("PROD");
         this.productName = productName;
         this.productCategory = productCategory;
         this.productDistributor = distributor;
@@ -31,10 +36,15 @@ public abstract class Product implements Comparable<Product> {
         this.warranty = warranty;
         categoryService.addProductInCategory(productCategory, this);
         distributorService.addProductToDistributor(distributor, this);
+        stockService.addProduct(this);
     }
 
     public String getProductId() {
         return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public String getProductName() {
@@ -93,11 +103,20 @@ public abstract class Product implements Comparable<Product> {
         this.warranty = warranty;
     }
 
+    public static int getNumberOfProducts() {
+        return numberOfProducts;
+    }
+
     public abstract void showDescription();
 
     @Override
     public int compareTo(Product product) {
-        return this.productName.compareTo(product.productName);
+
+        int nameComparator = this.productName.compareTo(product.productName);
+        if(nameComparator != 0) {
+            return nameComparator;
+        }
+        return this.productDistributor.getDistributorName().compareTo(product.getProductDistributor().getDistributorName());
     }
 
     @Override

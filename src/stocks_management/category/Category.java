@@ -3,6 +3,7 @@ package stocks_management.category;
 import stocks_management.product.ProductDistributorComparator;
 import stocks_management.product.Product;
 import stocks_management.product.ProductPriceComparator;
+import stocks_management.services.StockService;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -12,11 +13,17 @@ public class Category implements Comparable<Category> {
     private String categoryId;
     private String categoryName;
     private Product[] products;
+    private static int numberOfCategories = 0;
 
     public Category(String categoryId, String categoryName) {
-        this.categoryId = categoryId;
+
+        StockService stockService = StockService.getInstance();
+
+        numberOfCategories++;
+        this.categoryId = stockService.generateId("CAT");
         this.categoryName = categoryName;
         this.products = new Product[0];
+        stockService.addCategory(this);
     }
 
     public String getCategoryId() {
@@ -37,6 +44,10 @@ public class Category implements Comparable<Category> {
 
     public void setProducts(Product[] products) {
         this.products = products;
+    }
+
+    public static int getNumberOfCategories() {
+        return numberOfCategories;
     }
 
     @Override

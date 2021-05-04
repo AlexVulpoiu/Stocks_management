@@ -3,11 +3,12 @@ package stocks_management.product.filterable;
 import stocks_management.product.Product;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class PriceFilter implements Filterable<Double> {
 
     @Override
-    public Product[] filterEqual(Product[] products, Double value) {
+    public Product[] filterEqual(List<Product> products, Double value) {
 
         Product[] equalProducts = new Product[0];
         for(Product product : products) {
@@ -21,7 +22,7 @@ public class PriceFilter implements Filterable<Double> {
     }
 
     @Override
-    public Product[] filterInterval(Product[] products, Double leftValue, Double rightValue) {
+    public Product[] filterInterval(List<Product> products, Double leftValue, Double rightValue) {
 
         Product[] intervalProducts = new Product[0];
         for(Product product : products) {
@@ -35,7 +36,7 @@ public class PriceFilter implements Filterable<Double> {
     }
 
     @Override
-    public Product[] filterLess(Product[] products, Double value) {
+    public Product[] filterLess(List<Product> products, Double value) {
 
         Product[] equalProducts = new Product[0];
         for(Product product : products) {
@@ -49,7 +50,7 @@ public class PriceFilter implements Filterable<Double> {
     }
 
     @Override
-    public Product[] filterGreater(Product[] products, Double value) {
+    public Product[] filterGreater(List<Product> products, Double value) {
 
         Product[] equalProducts = new Product[0];
         for(Product product : products) {

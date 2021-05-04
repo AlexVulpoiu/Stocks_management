@@ -5,8 +5,8 @@ import stocks_management.distributor.Distributor;
 
 public class Smartwatch extends Product {
 
-    public Smartwatch(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
-        super(productId, productName, productCategory, distributor, price, warranty);
+    public Smartwatch(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
+        super(stock, productName, productCategory, distributor, price, warranty);
     }
 
     @Override

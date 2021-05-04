@@ -7,8 +7,8 @@ public class PowerBank extends Product {
 
     private int capacity;
 
-    public PowerBank(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty, int capacity) {
-        super(productId, productName, productCategory, distributor, price, warranty);
+    public PowerBank(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, int capacity) {
+        super(stock, productName, productCategory, distributor, price, warranty);
         this.capacity = capacity;
     }
 

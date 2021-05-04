@@ -1,6 +1,7 @@
 package stocks_management.transaction;
 
 import stocks_management.product.Product;
+import stocks_management.services.StockService;
 
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
@@ -18,6 +19,9 @@ public class Transaction implements Comparable<Transaction> {
     private static int numberOfTransactions = 0;
 
     public Transaction() {
+
+        StockService stockService = StockService.getInstance();
+
         numberOfTransactions++;
         this.transactionNumber = numberOfTransactions;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
@@ -26,6 +30,7 @@ public class Transaction implements Comparable<Transaction> {
         this.products = new Product[0];
         this.total = 0;
         this.opened = true;
+        stockService.addTransaction(this);
     }
 
     public int getTransactionNumber() {

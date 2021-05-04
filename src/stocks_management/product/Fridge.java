@@ -12,8 +12,8 @@ public class Fridge extends Product {
     private double length;
     private boolean freezer;
 
-    public Fridge(String productId, String productName, Category productCategory, Distributor distributor, double price, int warranty, int minTemperature, int maxTemperature, double height, double width, double length, boolean freezer) {
-        super(productId, productName, productCategory, distributor, price, warranty);
+    public Fridge(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, int minTemperature, int maxTemperature, double height, double width, double length, boolean freezer) {
+        super(stock, productName, productCategory, distributor, price, warranty);
         this.minTemperature = minTemperature;
         this.maxTemperature = maxTemperature;
         this.height = height;
