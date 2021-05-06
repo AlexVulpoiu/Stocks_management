@@ -36,32 +36,16 @@ public abstract class Product implements Comparable<Product> {
         return productId;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
     public String getProductName() {
         return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 
     public Category getProductCategory() {
         return productCategory;
     }
 
-    public void setProductCategory(Category productCategory) {
-        this.productCategory = productCategory;
-    }
-
     public Distributor getProductDistributor() {
         return productDistributor;
-    }
-
-    public void setProductDistributor(Distributor productDistributor) {
-        this.productDistributor = productDistributor;
     }
 
     public double getPrice() {
@@ -90,10 +74,6 @@ public abstract class Product implements Comparable<Product> {
 
     public int getWarranty() {
         return warranty;
-    }
-
-    public void setWarranty(int warranty) {
-        this.warranty = warranty;
     }
 
     public static int getNumberOfProducts() {

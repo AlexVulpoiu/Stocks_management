@@ -5,7 +5,7 @@ import stocks_management.distributor.Distributor;
 
 public class Mouse extends Product {
 
-    private boolean wireless;
+    private final boolean wireless;
 
     public Mouse(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, boolean wireless) {
         super(stock, productName, productCategory, distributor, price, warranty);
@@ -14,10 +14,6 @@ public class Mouse extends Product {
 
     public boolean isWireless() {
         return wireless;
-    }
-
-    public void setWireless(boolean wireless) {
-        this.wireless = wireless;
     }
 
     @Override

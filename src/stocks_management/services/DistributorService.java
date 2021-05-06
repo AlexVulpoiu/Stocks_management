@@ -1,6 +1,5 @@
 package stocks_management.services;
 
-import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
 import stocks_management.product.Product;
 

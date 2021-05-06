@@ -5,14 +5,14 @@ import stocks_management.distributor.Distributor;
 
 public class Laptop extends Product {
 
-    private double diagonal;
-    private String cpu;
-    private int ram;
-    private int memory;
-    private String storageType;
-    private String graphicsCard;
-    private int usbPorts;
-    private String category;
+    private final double diagonal;
+    private final String cpu;
+    private final int ram;
+    private final int memory;
+    private final String storageType;
+    private final String graphicsCard;
+    private final int usbPorts;
+    private final String category;
 
     public Laptop(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String cpu, int ram, int memory, String storageType, String graphicsCard, int usbPorts) {
         super(stock, productName, productCategory, distributor, price, warranty);
@@ -37,64 +37,32 @@ public class Laptop extends Product {
         return diagonal;
     }
 
-    public void setDiagonal(double diagonal) {
-        this.diagonal = diagonal;
-    }
-
     public String getCpu() {
         return cpu;
-    }
-
-    public void setCpu(String cpu) {
-        this.cpu = cpu;
     }
 
     public int getRam() {
         return ram;
     }
 
-    public void setRam(int ram) {
-        this.ram = ram;
-    }
-
     public int getMemory() {
         return memory;
-    }
-
-    public void setMemory(int memory) {
-        this.memory = memory;
     }
 
     public String getStorageType() {
         return storageType;
     }
 
-    public void setStorageType(String storageType) {
-        this.storageType = storageType;
-    }
-
     public String getGraphicsCard() {
         return graphicsCard;
-    }
-
-    public void setGraphicsCard(String graphicsCard) {
-        this.graphicsCard = graphicsCard;
     }
 
     public int getUsbPorts() {
         return usbPorts;
     }
 
-    public void setUsbPorts(int usbPorts) {
-        this.usbPorts = usbPorts;
-    }
-
     public String getCategory() {
         return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     @Override

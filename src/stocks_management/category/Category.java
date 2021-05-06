@@ -10,8 +10,8 @@ import java.util.Objects;
 
 public class Category implements Comparable<Category> {
 
-    private String categoryId;
-    private String categoryName;
+    private final String categoryId;
+    private final String categoryName;
     private Product[] products;
     private static int numberOfCategories = 0;
 
@@ -31,10 +31,6 @@ public class Category implements Comparable<Category> {
 
     public String getCategoryName() {
         return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
     }
 
     public Product[] getProducts() {

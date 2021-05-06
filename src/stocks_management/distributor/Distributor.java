@@ -8,9 +8,9 @@ import java.util.Objects;
 
 public class Distributor implements Comparable<Distributor> {
 
-    private String distributorId;
-    private String distributorName;
-    private String country;
+    private final String distributorId;
+    private final String distributorName;
+    private final String country;
     private Product[] products;
     private static int numberOfDistributors = 0;
 
@@ -33,16 +33,8 @@ public class Distributor implements Comparable<Distributor> {
         return distributorName;
     }
 
-    public void setDistributorName(String distributorName) {
-        this.distributorName = distributorName;
-    }
-
     public String getCountry() {
         return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public Product[] getProducts() {

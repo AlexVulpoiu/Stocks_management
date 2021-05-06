@@ -13,12 +13,11 @@ import java.util.*;
 public class StockService {
 
     public static StockService instance = null;
-    private double totalIncome;
-    private List<Product> stock;
-    private Set<Distributor> distributors;
-    private List<Category> categories;
-    private List<Transaction> transactions;
-    private Map<String, List<Distributor>> distributorsForCategory;
+    private final List<Product> stock;
+    private final Set<Distributor> distributors;
+    private final List<Category> categories;
+    private final List<Transaction> transactions;
+    private final Map<String, List<Distributor>> distributorsForCategory;
 
     public static StockService getInstance() {
 
@@ -130,7 +129,7 @@ public class StockService {
 
     public void showTotalIncome() {
 
-        totalIncome = 0.0;
+        double totalIncome = 0.0;
         for(Transaction transaction : transactions) {
             totalIncome += transaction.getTotal();
         }

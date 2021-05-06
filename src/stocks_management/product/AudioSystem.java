@@ -5,10 +5,10 @@ import stocks_management.distributor.Distributor;
 
 public class AudioSystem extends Product {
 
-    private int power;
-    private int numberOfPieces;
-    private boolean wireless;
-    private boolean bluetooth;
+    private final int power;
+    private final int numberOfPieces;
+    private final boolean wireless;
+    private final boolean bluetooth;
 
     public AudioSystem(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, int power, int numberOfPieces, boolean wireless, boolean bluetooth) {
         super(stock, productName, productCategory, distributor, price, warranty);
@@ -22,32 +22,16 @@ public class AudioSystem extends Product {
         return power;
     }
 
-    public void setPower(int power) {
-        this.power = power;
-    }
-
     public int getNumberOfPieces() {
         return numberOfPieces;
-    }
-
-    public void setNumberOfPieces(int numberOfPieces) {
-        this.numberOfPieces = numberOfPieces;
     }
 
     public boolean isWireless() {
         return wireless;
     }
 
-    public void setWireless(boolean wireless) {
-        this.wireless = wireless;
-    }
-
     public boolean hasBluetooth() {
         return bluetooth;
-    }
-
-    public void setBluetooth(boolean bluetooth) {
-        this.bluetooth = bluetooth;
     }
 
     @Override

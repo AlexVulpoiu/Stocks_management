@@ -5,7 +5,7 @@ import stocks_management.distributor.Distributor;
 
 public class PowerBank extends Product {
 
-    private int capacity;
+    private final int capacity;
 
     public PowerBank(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, int capacity) {
         super(stock, productName, productCategory, distributor, price, warranty);
@@ -14,10 +14,6 @@ public class PowerBank extends Product {
 
     public int getCapacity() {
         return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
     }
 
     @Override

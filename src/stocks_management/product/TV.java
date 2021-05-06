@@ -5,9 +5,9 @@ import stocks_management.distributor.Distributor;
 
 public class TV extends Product {
 
-    private double diagonal;
-    private String resolution;
-    private String room;
+    private final double diagonal;
+    private final String resolution;
+    private final String room;
 
     public TV(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String resolution) {
         super(stock, productName, productCategory, distributor, price, warranty);
@@ -24,24 +24,12 @@ public class TV extends Product {
         return diagonal;
     }
 
-    public void setDiagonal(double diagonal) {
-        this.diagonal = diagonal;
-    }
-
     public String getResolution() {
         return resolution;
     }
 
-    public void setResolution(String resolution) {
-        this.resolution = resolution;
-    }
-
     public String getRoom() {
         return room;
-    }
-
-    public void setRoom(String room) {
-        this.room = room;
     }
 
     @Override

@@ -6,10 +6,10 @@ import stocks_management.distributor.Distributor;
 
 public class MobilePhone extends Product {
 
-    private double diagonal;
-    private int ram;
-    private int memory;
-    private int numberOfCameras;
+    private final double diagonal;
+    private final int ram;
+    private final int memory;
+    private final int numberOfCameras;
 
     public MobilePhone(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, int ram, int memory, int numberOfCameras) {
         super(stock, productName, productCategory, distributor, price, warranty);
@@ -23,32 +23,16 @@ public class MobilePhone extends Product {
         return diagonal;
     }
 
-    public void setDiagonal(double diagonal) {
-        this.diagonal = diagonal;
-    }
-
     public int getRam() {
         return ram;
-    }
-
-    public void setRam(int ram) {
-        this.ram = ram;
     }
 
     public int getMemory() {
         return memory;
     }
 
-    public void setMemory(int memory) {
-        this.memory = memory;
-    }
-
     public int getNumberOfCameras() {
         return numberOfCameras;
-    }
-
-    public void setNumberOfCameras(int numberOfCameras) {
-        this.numberOfCameras = numberOfCameras;
     }
 
     @Override
