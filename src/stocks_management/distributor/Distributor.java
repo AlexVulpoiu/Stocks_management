@@ -14,7 +14,7 @@ public class Distributor implements Comparable<Distributor> {
     private Product[] products;
     private static int numberOfDistributors = 0;
 
-    public Distributor(String distributorId, String distributorName, String country) {
+    public Distributor(String distributorName, String country) {
 
         StockService stockService = StockService.getInstance();
 
@@ -55,6 +55,10 @@ public class Distributor implements Comparable<Distributor> {
 
     public static int getNumberOfDistributors() {
         return numberOfDistributors;
+    }
+
+    public static void decrementNumberOfDistributors() {
+        numberOfDistributors--;
     }
 
     @Override

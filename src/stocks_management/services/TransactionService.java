@@ -36,6 +36,17 @@ public class TransactionService {
 
             total += product.getPrice();
             product.setStock(product.getStock() - 1);
+
+            if(product.getPromotion() != null) {
+                Product promotion = product.getPromotion();
+
+                if(promotion.getStock() >= 1) {
+                    promotion.setStock(promotion.getStock() - 1);
+                } else {
+                    System.out.println("The promotional product isn't currently available!");
+                }
+            }
+
             products = Arrays.copyOf(products, products.length + 1);
             products[products.length - 1] = product;
 

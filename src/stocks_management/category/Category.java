@@ -15,7 +15,7 @@ public class Category implements Comparable<Category> {
     private Product[] products;
     private static int numberOfCategories = 0;
 
-    public Category(String categoryId, String categoryName) {
+    public Category(String categoryName) {
 
         StockService stockService = StockService.getInstance();
 
@@ -47,6 +47,10 @@ public class Category implements Comparable<Category> {
 
     public static int getNumberOfCategories() {
         return numberOfCategories;
+    }
+
+    public static void decrementNumberOfCategories() {
+        numberOfCategories--;
     }
 
     @Override

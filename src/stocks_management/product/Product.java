@@ -1,9 +1,7 @@
 package stocks_management.product;
 
 import stocks_management.category.Category;
-import stocks_management.services.CategoryService;
 import stocks_management.distributor.Distributor;
-import stocks_management.services.DistributorService;
 import stocks_management.services.StockService;
 
 import java.util.Objects;
@@ -100,6 +98,10 @@ public abstract class Product implements Comparable<Product> {
 
     public static int getNumberOfProducts() {
         return numberOfProducts;
+    }
+
+    public static void decrementNumberOfProducts() {
+        numberOfProducts--;
     }
 
     public abstract void showDescription();

@@ -98,6 +98,7 @@ public class StockService {
         DistributorService distributorService = DistributorService.getInstance();
 
         stock.remove(product);
+        System.out.println("Removed from stock: " + product);
         categoryService.removeProductFromCategory(product.getProductCategory(), product);
         distributorService.removeProductFromDistributor(product.getProductDistributor(), product);
     }
@@ -117,7 +118,10 @@ public class StockService {
         Collections.sort(stock);
         for(Product product : stock) {
             if(product.getPromotion() != null) {
-                System.out.println("\t" + product.getProductName() + ", promotion: " + product.getPromotion().getProductName());
+                System.out.println("\t" + product.getProductDistributor().getDistributorName() + " " +
+                        product.getProductName() + ", promotion: " +
+                        product.getPromotion().getProductDistributor().getDistributorName() + " " +
+                        product.getPromotion().getProductName());
             }
         }
 
@@ -135,7 +139,7 @@ public class StockService {
 
     public void modifyPrice(Product product, double percent) {
 
-        Validator validator = new Validator();
+        Validator validator = Validator.getInstance();
         if(validator.validatePercent(percent)) {
             product.setPrice(product.getPrice() * (1 + percent));
         } else {
@@ -145,7 +149,7 @@ public class StockService {
 
     public void modifyPrice(Category category, double percent) {
 
-        Validator validator = new Validator();
+        Validator validator = Validator.getInstance();
         Product[] products = category.getProducts();
 
         if(!validator.validatePercent(percent)) {
@@ -220,13 +224,16 @@ public class StockService {
 
         StringBuilder id = new StringBuilder(prefix);
 
-        int number;
+        int number, maxDigits;
         if(prefix.equals("PROD")){
             number = Product.getNumberOfProducts();
+            maxDigits = 10;
         } else if(prefix.equals("CAT")) {
             number = Category.getNumberOfCategories();
+            maxDigits = 3;
         } else {
             number = Distributor.getNumberOfDistributors();
+            maxDigits = 3;
         }
 
         int aux = number, digits = 0;
@@ -234,9 +241,9 @@ public class StockService {
             digits++;
             aux /= 10;
         }
-        while(digits < 10) {    // adding extra zeros to productId, such that all ids have the same number of digits(10)
+        while(digits < maxDigits) {
             id.append("0");
-            digits--;
+            digits++;
         }
         id.append(number);
 
@@ -285,9 +292,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "Audio"));
-        // equality for 2 Category objects is checks their names, so we can provide any id for the parameter object
-        Category category = categories.get(index);
+       Category category = findCategoryByName("Audio");
 
         String name = generateName();
         double price = generateDouble(200, 1500);
@@ -311,8 +316,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "Audio"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("Audio");
 
         String name = generateName();
         double price = generateDouble(500, 5000);
@@ -337,8 +341,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "Appliances"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("Appliances");
 
         String name = generateName();
         double price = generateDouble(800, 4000);
@@ -365,8 +368,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "Appliances"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("Appliances");
 
         String name = generateName();
         double price = generateDouble(800, 2500);
@@ -387,8 +389,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "Accessories"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("Accessories");
 
         String name = generateName();
         double price = generateDouble(20, 1500);
@@ -409,8 +410,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "IT"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("IT");
 
         String name = generateName();
         double price = generateDouble(1800, 10000);
@@ -441,8 +441,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "IT"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("IT");
 
         String name = generateName();
         double price = generateDouble(1500, 7000);
@@ -467,8 +466,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "Accessories"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("Accessories");
 
         String name = generateName();
         double price = generateDouble(30, 500);
@@ -490,8 +488,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "Accessories"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("Accessories");
 
         String name = generateName();
         double price = generateDouble(50, 400);
@@ -513,8 +510,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "Accessories"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("Accessories");
 
         String name = generateName();
         double price = generateDouble(800, 3000);
@@ -535,8 +531,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-        int index = categories.indexOf(new Category("0", "TV"));
-        Category category = categories.get(index);
+        Category category = findCategoryByName("TV");
 
         String name = generateName();
         double price = generateDouble(1500, 9000);
@@ -552,7 +547,7 @@ public class StockService {
         return tv;
     }
 
-    public Product findProduct(String name) {
+    public Product findProductByName(String name) {
 
         int index, left, right, middle;
 
@@ -580,7 +575,7 @@ public class StockService {
         return stock.get(index);
     }
 
-    public Category findCategory(String name) {
+    public Category findCategoryByName(String name) {
 
         int index, left, right, middle;
 
@@ -606,6 +601,48 @@ public class StockService {
         }
 
         return categories.get(index);
+    }
+
+    public Category findCategoryById(String id) {
+
+        int index, left, right, middle;
+
+        categories.sort(Comparator.comparing(Category::getCategoryId));
+
+        index = -1;
+        left = 0;
+        right = categories.size() - 1;
+        while(left <= right) {
+            middle = left + (right - left) / 2;
+            if(categories.get(middle).getCategoryId().equals(id)) {
+                index = middle;
+                break;
+            } else if(categories.get(middle).getCategoryId().compareTo(id) < 0) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+
+        if(index == -1) {
+            return null;
+        } else {
+            return categories.get(index);
+        }
+    }
+
+    public Distributor findDistributorById(String id) {
+
+        Distributor distributor = null;
+
+        for(Distributor d : distributors) {
+            if(d.getDistributorId().equals(id)) {
+                distributor = d;
+                break;
+            }
+        }
+
+        return distributor;
     }
 
     public Product[] filterEqual(Filterable filterable, double value) {
