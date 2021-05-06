@@ -12,6 +12,7 @@ import java.io.IOException;
 public class ReadingService {
 
     private final StockService stockService = StockService.getInstance();
+    private final AuditService auditService = AuditService.getInstance();
     private final Validator validator = Validator.getInstance();
 
     private static ReadingService instance = null;
@@ -47,6 +48,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read categories from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -80,6 +82,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read distributors from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -127,6 +130,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read audio speakers from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -175,6 +179,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read audio systems from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -226,6 +231,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read fridges from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -269,6 +275,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read gas cookers from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -312,6 +319,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read headphones from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -361,6 +369,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read laptops from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -409,6 +418,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read mobile phones from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -453,6 +463,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read mouses from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -498,6 +509,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read power banks from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -542,6 +554,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read smartwatches from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -586,6 +599,7 @@ public class ReadingService {
             }
 
             reader.close();
+            auditService.writeAction("read TVs from .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());

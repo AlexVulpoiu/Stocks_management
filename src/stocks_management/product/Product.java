@@ -2,6 +2,7 @@ package stocks_management.product;
 
 import stocks_management.category.Category;
 import stocks_management.distributor.Distributor;
+import stocks_management.services.AuditService;
 import stocks_management.services.StockService;
 
 import java.util.Objects;
@@ -17,6 +18,8 @@ public abstract class Product implements Comparable<Product> {
     protected int stock;
     protected int warranty;
     protected static int numberOfProducts = 0;
+
+    protected final AuditService auditService = AuditService.getInstance();
 
     public Product(int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
 
@@ -62,6 +65,11 @@ public abstract class Product implements Comparable<Product> {
 
     public void setPromotion(Product promotion) {
         this.promotion = promotion;
+        if(promotion == null) {
+            auditService.writeAction("delete promotion for product");
+        } else {
+            auditService.writeAction("apply promotion for product");
+        }
     }
 
     public int getStock() {

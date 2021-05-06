@@ -7,6 +7,8 @@ import java.util.Arrays;
 
 public class DistributorService {
 
+    private final AuditService auditService = AuditService.getInstance();
+
     private static DistributorService instance = null;
 
     private DistributorService() {}
@@ -27,6 +29,8 @@ public class DistributorService {
             System.out.println("\t" + product);
         }
         System.out.println();
+
+        auditService.writeAction("show information for distributor");
     }
 
     public void addProductToDistributor(Distributor distributor, Product product) {

@@ -13,6 +13,7 @@ import java.util.List;
 
 public class WritingService {
 
+    private final AuditService auditService = AuditService.getInstance();
     private static WritingService instance = null;
 
     public static WritingService getInstance() {
@@ -42,6 +43,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write categories in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -65,6 +67,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write distributors in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -93,6 +96,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write audio speakers in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -121,6 +125,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write audio systems in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -151,6 +156,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write fridges in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -178,6 +184,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write gas cookers in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -205,6 +212,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write headphones in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -234,6 +242,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write laptops in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -262,6 +271,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write mobile phones in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -289,6 +299,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write mouses in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -316,6 +327,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write power banks in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -343,6 +355,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write smartwatches in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());
@@ -370,6 +383,7 @@ public class WritingService {
             }
 
             writer.close();
+            auditService.writeAction("write TVs in .csv file");
 
         } catch (IOException exception) {
             System.out.println("EXCEPTION: " + exception.getMessage());

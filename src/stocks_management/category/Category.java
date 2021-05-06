@@ -3,6 +3,7 @@ package stocks_management.category;
 import stocks_management.product.ProductDistributorComparator;
 import stocks_management.product.Product;
 import stocks_management.product.ProductPriceComparator;
+import stocks_management.services.AuditService;
 import stocks_management.services.StockService;
 
 import java.util.Arrays;
@@ -14,6 +15,8 @@ public class Category implements Comparable<Category> {
     private final String categoryName;
     private Product[] products;
     private static int numberOfCategories = 0;
+
+    private final AuditService auditService = AuditService.getInstance();
 
     public Category(String categoryName) {
 
@@ -60,6 +63,8 @@ public class Category implements Comparable<Category> {
         for(Product product : products) {
             System.out.println(product);
         }
+
+        auditService.writeAction("show products from category sorted by name");
     }
 
     public void showProductsByPrice() {
@@ -68,6 +73,8 @@ public class Category implements Comparable<Category> {
         for(Product product : products) {
             System.out.println(product);
         }
+
+        auditService.writeAction("show products from category sorted by price");
     }
 
     public void showProductsByDistributor() {
@@ -76,6 +83,8 @@ public class Category implements Comparable<Category> {
         for(Product product : products) {
             System.out.println(product);
         }
+
+        auditService.writeAction("show products from category sorted by distributor");
     }
 
     @Override

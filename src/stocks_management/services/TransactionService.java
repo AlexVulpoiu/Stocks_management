@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 public class TransactionService {
 
+    private final AuditService auditService = AuditService.getInstance();
     private static TransactionService instance = null;
 
     private TransactionService() {}
@@ -52,6 +53,8 @@ public class TransactionService {
 
             transaction.setProducts(products);
             transaction.setTotal(total);
+
+            auditService.writeAction("add product to transaction");
         }
     }
 
@@ -80,6 +83,8 @@ public class TransactionService {
 
             transaction.setProducts(products);
             transaction.setTotal(total);
+
+            auditService.writeAction("remove product from transaction");
         }
     }
 
@@ -101,6 +106,8 @@ public class TransactionService {
         }
 
         System.out.println();
+
+        auditService.writeAction("show transaction");
     }
 
     public void closeTransaction(Transaction transaction) {
@@ -108,5 +115,7 @@ public class TransactionService {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         transaction.setDate(dtf.format(now));
+
+        auditService.writeAction("close transaction");
     }
 }

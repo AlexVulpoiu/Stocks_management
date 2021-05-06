@@ -19,6 +19,8 @@ public class StockService {
     private final List<Transaction> transactions;
     private final Map<String, List<Distributor>> distributorsForCategory;
 
+    private final AuditService auditService = AuditService.getInstance();
+
     public static StockService getInstance() {
 
         if(instance == null) {
@@ -89,6 +91,8 @@ public class StockService {
             int current_stock = stock.get(index).getStock();
             stock.get(index).setStock(current_stock + product.getStock());
         }
+
+        auditService.writeAction("add product in stock");
     }
 
     public void removeProduct(Product product) {
@@ -100,15 +104,8 @@ public class StockService {
         System.out.println("Removed from stock: " + product);
         categoryService.removeProductFromCategory(product.getProductCategory(), product);
         distributorService.removeProductFromDistributor(product.getProductDistributor(), product);
-    }
 
-    public void applyPromotion(Product product, Product promotion) {
-
-        int index = stock.indexOf(product);
-
-        if(index != -1) {
-            stock.get(index).setPromotion(promotion);
-        }
+        auditService.writeAction("remove product from stock");
     }
 
     public void showPromotionalProducts() {
@@ -125,6 +122,7 @@ public class StockService {
         }
 
         System.out.println();
+        auditService.writeAction("show promotional products");
     }
 
     public void showTotalIncome() {
@@ -133,7 +131,10 @@ public class StockService {
         for(Transaction transaction : transactions) {
             totalIncome += transaction.getTotal();
         }
+        totalIncome = Math.round(totalIncome * 100.0) / 100.0;
         System.out.println("Total income: " + totalIncome + "\n");
+
+        auditService.writeAction("show total income");
     }
 
     public void modifyPrice(Product product, double percent) {
@@ -144,6 +145,7 @@ public class StockService {
         } else {
             System.out.println("The price wasn't modified because it would have been negative!");
         }
+        auditService.writeAction("modify price for product");
     }
 
     public void modifyPrice(Category category, double percent) {
@@ -159,12 +161,14 @@ public class StockService {
                 product.setPrice(product.getPrice() * (1 + percent));
             }
         }
+        auditService.writeAction("modify price for category");
     }
 
     public void addCategory(Category category) {
 
         if(!categories.contains(category)) {
             this.categories.add(category);
+            auditService.writeAction("add category");
         }
     }
 
@@ -172,11 +176,13 @@ public class StockService {
 
         if(!distributors.contains(distributor)) {
             this.distributors.add(distributor);
+            auditService.writeAction("add distributor");
         }
     }
 
     public void addTransaction(Transaction transaction) {
         this.transactions.add(transaction);
+        auditService.writeAction("add transaction");
     }
 
     public void showStock() {
@@ -187,6 +193,8 @@ public class StockService {
             System.out.println(product);
         }
         System.out.println();
+
+        auditService.writeAction("show stock");
     }
 
     public void showCategories() {
@@ -197,6 +205,8 @@ public class StockService {
             System.out.println(category);
         }
         System.out.println();
+
+        auditService.writeAction("show categories");
     }
 
     public void showDistributors() {
@@ -206,6 +216,8 @@ public class StockService {
             System.out.println(distributor);
         }
         System.out.println();
+
+        auditService.writeAction("show distributors");
     }
 
     public void showTransactions() {
@@ -217,6 +229,8 @@ public class StockService {
             transactionService.showTransaction(transaction);
         }
         System.out.println();
+
+        auditService.writeAction("show transactions");
     }
 
     public String generateId(String prefix) {
@@ -304,6 +318,8 @@ public class StockService {
         AudioSpeaker audioSpeaker = new AudioSpeaker(stock, name, category, distributor, price, warranty, power, wireless, bluetooth);
         addProduct(audioSpeaker);
 
+        auditService.writeAction("generate audio speaker");
+
         return audioSpeaker;
     }
 
@@ -328,6 +344,8 @@ public class StockService {
 
         AudioSystem audioSystem = new AudioSystem(stock, name, category, distributor, price, warranty, power, pieces, wireless, bluetooth);
         addProduct(audioSystem);
+
+        auditService.writeAction("generate audio system");
 
         return audioSystem;
     }
@@ -356,6 +374,8 @@ public class StockService {
         Fridge fridge = new Fridge(stock, name, category, distributor, price, warranty, minTemp, maxTemp, height, width, length, freezer);
         addProduct(fridge);
 
+        auditService.writeAction("generate fridge");
+
         return fridge;
     }
 
@@ -377,6 +397,8 @@ public class StockService {
         GasCooker gasCooker = new GasCooker(stock, name, category, distributor, price, warranty);
         addProduct(gasCooker);
 
+        auditService.writeAction("generate gas cooker");
+
         return gasCooker;
     }
 
@@ -397,6 +419,8 @@ public class StockService {
 
         Headphones headphones = new Headphones(stock, name, category, distributor, price, warranty);
         addProduct(headphones);
+
+        auditService.writeAction("generate headphones");
 
         return headphones;
     }
@@ -429,6 +453,8 @@ public class StockService {
         Laptop laptop = new Laptop(stock, name, category, distributor, price, warranty, diagonal, cpu, ram, memory, storageType, graphicsCard, usbPorts);
         addProduct(laptop);
 
+        auditService.writeAction("generate laptop");
+
         return laptop;
     }
 
@@ -454,6 +480,8 @@ public class StockService {
         MobilePhone mobilePhone = new MobilePhone(stock, name, category, distributor, price, warranty, diagonal, ram, memory, cameras);
         addProduct(mobilePhone);
 
+        auditService.writeAction("generate mobile phone");
+
         return mobilePhone;
     }
 
@@ -475,6 +503,8 @@ public class StockService {
 
         Mouse mouse = new Mouse(stock, name, category, distributor, price, warranty, wireless);
         addProduct(mouse);
+
+        auditService.writeAction("generate mouse");
 
         return mouse;
     }
@@ -498,6 +528,8 @@ public class StockService {
         PowerBank powerBank = new PowerBank(stock, name, category, distributor, price, warranty, capacity);
         addProduct(powerBank);
 
+        auditService.writeAction("generate power bank");
+
         return powerBank;
     }
 
@@ -518,6 +550,8 @@ public class StockService {
 
         Smartwatch smartwatch = new Smartwatch(stock, name, category, distributor, price, warranty);
         addProduct(smartwatch);
+
+        auditService.writeAction("generate smartwatch");
 
         return smartwatch;
     }
@@ -543,6 +577,8 @@ public class StockService {
         TV tv = new TV(stock, name, category, distributor, price, warranty, diagonal, resolution);
         addProduct(tv);
 
+        auditService.writeAction("generate TV");
+
         return tv;
     }
 
@@ -565,6 +601,8 @@ public class StockService {
                 right = middle - 1;
             }
         }
+
+        auditService.writeAction("search product by name");
 
         if(index == -1) {
             System.out.println("The product named " + name + " doesn't exist!");
@@ -593,6 +631,8 @@ public class StockService {
                 right = middle - 1;
             }
         }
+
+        auditService.writeAction("search category by name");
 
         if(index == -1) {
             System.out.println("The category named " + name + " doesn't exist!");
@@ -623,6 +663,8 @@ public class StockService {
             }
         }
 
+        auditService.writeAction("search category by id");
+
         if(index == -1) {
             return null;
         } else {
@@ -641,22 +683,28 @@ public class StockService {
             }
         }
 
+        auditService.writeAction("search distributor by id");
+
         return distributor;
     }
 
     public Product[] filterEqual(Filterable filterable, double value) {
+        auditService.writeAction("filter products having price = " + value);
         return filterable.filterEqual(this.stock, value);
     }
 
     public Product[] filterInterval(Filterable filterable, double left, double right) {
+        auditService.writeAction("filter products having price between " + left + " and " + right);
         return filterable.filterInterval(this.stock, left, right);
     }
 
     public Product[] filterLess(Filterable filterable, double value) {
+        auditService.writeAction("filter products having price < " + value);
         return filterable.filterLess(this.stock, value);
     }
 
     public Product[] filterGreater(Filterable filterable, double value) {
+        auditService.writeAction("filter products having price > " + value);
         return filterable.filterGreater(this.stock, value);
     }
 }

@@ -46,6 +46,7 @@ public class Transaction implements Comparable<Transaction> {
     }
 
     public double getTotal() {
+        total = Math.round(total * 100.0) / 100.0;
         return total;
     }
 

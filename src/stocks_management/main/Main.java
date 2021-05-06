@@ -7,12 +7,14 @@ import stocks_management.product.*;
 import stocks_management.product.filterable.PriceFilter;
 import stocks_management.transaction.Transaction;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
+        AuditService auditService = AuditService.getInstance();
         StockService stockService = StockService.getInstance();
         DistributorService distributorService = DistributorService.getInstance();
         TransactionService transactionService = TransactionService.getInstance();
@@ -177,9 +179,7 @@ public class Main {
 
         // transactions
         Transaction transactionOne = new Transaction();
-        stockService.addTransaction(transactionOne);
         Transaction transactionTwo = new Transaction();
-        stockService.addTransaction(transactionTwo);
 
         /// add products in transactions
         Random random = new Random();
@@ -218,5 +218,7 @@ public class Main {
 
         // it should return the sum of all transactions
         stockService.showTotalIncome();
+
+        auditService.close();
     }
 }

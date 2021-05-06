@@ -33,6 +33,8 @@ public class Mouse extends Product {
             System.out.println("\tFor the moment, the product is not available!");
         }
         System.out.println();
+
+        auditService.writeAction("show description for mouse");
     }
 
     @Override
