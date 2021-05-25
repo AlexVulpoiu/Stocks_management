@@ -1,0 +1,21 @@
+Initial smartwatches:
+Smartwatch{} Product{productId='PROD0000000041', productName='Galaxy Watch Active 2', productCategory=Accessories, productDistributor=Samsung, price=949.0, promotion=null, stock=9, warranty=2}
+Smartwatch{} Product{productId='PROD0000000042', productName='Watch SE', productCategory=Accessories, productDistributor=Apple, price=1680.0, promotion=null, stock=3, warranty=2}
+Smartwatch{} Product{productId='PROD0000000043', productName='VivoWatch BP', productCategory=Accessories, productDistributor=Asus, price=1520.0, promotion=null, stock=4, warranty=3}
+
+Added a new smartwatch:
+Smartwatch{} Product{productId='PROD0000000041', productName='Galaxy Watch Active 2', productCategory=Accessories, productDistributor=Samsung, price=949.0, promotion=null, stock=9, warranty=2}
+Smartwatch{} Product{productId='PROD0000000042', productName='Watch SE', productCategory=Accessories, productDistributor=Apple, price=1680.0, promotion=null, stock=3, warranty=2}
+Smartwatch{} Product{productId='PROD0000000043', productName='VivoWatch BP', productCategory=Accessories, productDistributor=Asus, price=1520.0, promotion=null, stock=4, warranty=3}
+Smartwatch{} Product{productId='PROD0000000044', productName='Qjzbufwqq 72', productCategory=Accessories, productDistributor=JBL, price=2048.0, promotion=null, stock=2, warranty=3}
+
+Edited a smartwatch:
+Smartwatch{} Product{productId='PROD0000000041', productName='Galaxy Watch Active 2', productCategory=Accessories, productDistributor=Samsung, price=949.0, promotion=null, stock=9, warranty=2}
+Smartwatch{} Product{productId='PROD0000000042', productName='Watch SE', productCategory=Accessories, productDistributor=Apple, price=1680.0, promotion=null, stock=3, warranty=2}
+Smartwatch{} Product{productId='PROD0000000043', productName='VivoWatch BP', productCategory=Accessories, productDistributor=Asus, price=1520.0, promotion=null, stock=4, warranty=3}
+Smartwatch{} Product{productId='PROD0000000044', productName='Qjzbufwqq 72', productCategory=Accessories, productDistributor=JBL, price=1000.0, promotion=null, stock=70, warranty=3}
+
+Deleted a smartwatch:
+Smartwatch{} Product{productId='PROD0000000041', productName='Galaxy Watch Active 2', productCategory=Accessories, productDistributor=Samsung, price=949.0, promotion=null, stock=9, warranty=2}
+Smartwatch{} Product{productId='PROD0000000042', productName='Watch SE', productCategory=Accessories, productDistributor=Apple, price=1680.0, promotion=null, stock=3, warranty=2}
+Smartwatch{} Product{productId='PROD0000000043', productName='VivoWatch BP', productCategory=Accessories, productDistributor=Asus, price=1520.0, promotion=null, stock=4, warranty=3}

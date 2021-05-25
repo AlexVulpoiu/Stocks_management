@@ -12,6 +12,11 @@ public class Mouse extends Product {
         this.wireless = wireless;
     }
 
+    public Mouse(String id, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, boolean wireless) {
+        super(id, stock, productName, productCategory, distributor, price, warranty);
+        this.wireless = wireless;
+    }
+
     public boolean isWireless() {
         return wireless;
     }

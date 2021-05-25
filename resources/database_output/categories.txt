@@ -1,0 +1,29 @@
+Initial categories:
+Category{categoryId='CAT005', categoryName='Accessories'}
+Category{categoryId='CAT004', categoryName='Appliances'}
+Category{categoryId='CAT002', categoryName='Audio'}
+Category{categoryId='CAT001', categoryName='IT'}
+Category{categoryId='CAT003', categoryName='TV'}
+
+Added a new category:
+Category{categoryId='CAT005', categoryName='Accessories'}
+Category{categoryId='CAT004', categoryName='Appliances'}
+Category{categoryId='CAT002', categoryName='Audio'}
+Category{categoryId='CAT001', categoryName='IT'}
+Category{categoryId='CAT006', categoryName='New category'}
+Category{categoryId='CAT003', categoryName='TV'}
+
+Edited a category:
+Category{categoryId='CAT005', categoryName='Accessories'}
+Category{categoryId='CAT004', categoryName='Appliances'}
+Category{categoryId='CAT002', categoryName='Audio'}
+Category{categoryId='CAT001', categoryName='IT'}
+Category{categoryId='CAT006', categoryName='New category edited'}
+Category{categoryId='CAT003', categoryName='TV'}
+
+Deleted a category:
+Category{categoryId='CAT005', categoryName='Accessories'}
+Category{categoryId='CAT004', categoryName='Appliances'}
+Category{categoryId='CAT002', categoryName='Audio'}
+Category{categoryId='CAT001', categoryName='IT'}
+Category{categoryId='CAT003', categoryName='TV'}

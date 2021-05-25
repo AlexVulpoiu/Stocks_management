@@ -18,6 +18,14 @@ public class AudioSystem extends Product {
         this.bluetooth = bluetooth;
     }
 
+    public AudioSystem(String id, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, int power, int numberOfPieces, boolean wireless, boolean bluetooth) {
+        super(id, stock, productName, productCategory, distributor, price, warranty);
+        this.power = power;
+        this.numberOfPieces = numberOfPieces;
+        this.wireless = wireless;
+        this.bluetooth = bluetooth;
+    }
+
     public int getPower() {
         return power;
     }

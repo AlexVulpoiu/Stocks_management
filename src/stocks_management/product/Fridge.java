@@ -22,6 +22,16 @@ public class Fridge extends Product {
         this.freezer = freezer;
     }
 
+    public Fridge(String id, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, int minTemperature, int maxTemperature, double height, double width, double length, boolean freezer) {
+        super(id, stock, productName, productCategory, distributor, price, warranty);
+        this.minTemperature = minTemperature;
+        this.maxTemperature = maxTemperature;
+        this.height = height;
+        this.width = width;
+        this.length = length;
+        this.freezer = freezer;
+    }
+
     public int getMinTemperature() {
         return minTemperature;
     }

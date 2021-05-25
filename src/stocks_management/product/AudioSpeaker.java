@@ -16,6 +16,13 @@ public class AudioSpeaker extends Product {
         this.bluetooth = bluetooth;
     }
 
+    public AudioSpeaker(String productId, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, int power, boolean wireless, boolean bluetooth) {
+        super(productId, stock, productName, productCategory, distributor, price, warranty);
+        this.power = power;
+        this.wireless = wireless;
+        this.bluetooth = bluetooth;
+    }
+
     public int getPower() {
         return power;
     }

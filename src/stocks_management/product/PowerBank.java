@@ -12,6 +12,11 @@ public class PowerBank extends Product {
         this.capacity = capacity;
     }
 
+    public PowerBank(String id, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, int capacity) {
+        super(id, stock, productName, productCategory, distributor, price, warranty);
+        this.capacity = capacity;
+    }
+
     public int getCapacity() {
         return capacity;
     }

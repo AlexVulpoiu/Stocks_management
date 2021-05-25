@@ -1,0 +1,33 @@
+Initial tvs:
+TV{diagonal=54.33, resolution='4K', room='living room'} Product{productId='PROD0000000045', productName='55TU8072', productCategory=TV, productDistributor=Samsung, price=2279.0, promotion=null, stock=40, warranty=3}
+TV{diagonal=74.52, resolution='4K', room='living room'} Product{productId='PROD0000000046', productName='75XH8096', productCategory=TV, productDistributor=Sony, price=7341.0, promotion=null, stock=23, warranty=4}
+TV{diagonal=31.5, resolution='HD', room='bedroom'} Product{productId='PROD0000000047', productName='32PHS5505', productCategory=TV, productDistributor=Philips, price=755.0, promotion=null, stock=29, warranty=3}
+TV{diagonal=64.52, resolution='4K', room='living room'} Product{productId='PROD0000000048', productName='65A8', productCategory=TV, productDistributor=Sony, price=11000.0, promotion=null, stock=10, warranty=5}
+TV{diagonal=57.48, resolution='4K', room='living room'} Product{productId='PROD0000000049', productName='58PUS7555', productCategory=TV, productDistributor=Philips, price=2000.0, promotion=null, stock=30, warranty=3}
+TV{diagonal=54.33, resolution='4K', room='living room'} Product{productId='PROD0000000050', productName='55TU8372', productCategory=TV, productDistributor=Samsung, price=2399.0, promotion=null, stock=17, warranty=4}
+
+Added a new tv:
+TV{diagonal=54.33, resolution='4K', room='living room'} Product{productId='PROD0000000045', productName='55TU8072', productCategory=TV, productDistributor=Samsung, price=2279.0, promotion=null, stock=40, warranty=3}
+TV{diagonal=74.52, resolution='4K', room='living room'} Product{productId='PROD0000000046', productName='75XH8096', productCategory=TV, productDistributor=Sony, price=7341.0, promotion=null, stock=23, warranty=4}
+TV{diagonal=31.5, resolution='HD', room='bedroom'} Product{productId='PROD0000000047', productName='32PHS5505', productCategory=TV, productDistributor=Philips, price=755.0, promotion=null, stock=29, warranty=3}
+TV{diagonal=64.52, resolution='4K', room='living room'} Product{productId='PROD0000000048', productName='65A8', productCategory=TV, productDistributor=Sony, price=11000.0, promotion=null, stock=10, warranty=5}
+TV{diagonal=57.48, resolution='4K', room='living room'} Product{productId='PROD0000000049', productName='58PUS7555', productCategory=TV, productDistributor=Philips, price=2000.0, promotion=null, stock=30, warranty=3}
+TV{diagonal=54.33, resolution='4K', room='living room'} Product{productId='PROD0000000050', productName='55TU8372', productCategory=TV, productDistributor=Samsung, price=2399.0, promotion=null, stock=17, warranty=4}
+TV{diagonal=40.85, resolution='4K', room='living room'} Product{productId='PROD0000000051', productName='Tgvymvoto ', productCategory=TV, productDistributor=Samsung, price=7083.0, promotion=null, stock=82, warranty=4}
+
+Edited a tv:
+TV{diagonal=54.33, resolution='4K', room='living room'} Product{productId='PROD0000000045', productName='55TU8072', productCategory=TV, productDistributor=Samsung, price=2279.0, promotion=null, stock=40, warranty=3}
+TV{diagonal=74.52, resolution='4K', room='living room'} Product{productId='PROD0000000046', productName='75XH8096', productCategory=TV, productDistributor=Sony, price=7341.0, promotion=null, stock=23, warranty=4}
+TV{diagonal=31.5, resolution='HD', room='bedroom'} Product{productId='PROD0000000047', productName='32PHS5505', productCategory=TV, productDistributor=Philips, price=755.0, promotion=null, stock=29, warranty=3}
+TV{diagonal=64.52, resolution='4K', room='living room'} Product{productId='PROD0000000048', productName='65A8', productCategory=TV, productDistributor=Sony, price=11000.0, promotion=null, stock=10, warranty=5}
+TV{diagonal=57.48, resolution='4K', room='living room'} Product{productId='PROD0000000049', productName='58PUS7555', productCategory=TV, productDistributor=Philips, price=2000.0, promotion=null, stock=30, warranty=3}
+TV{diagonal=54.33, resolution='4K', room='living room'} Product{productId='PROD0000000050', productName='55TU8372', productCategory=TV, productDistributor=Samsung, price=2399.0, promotion=null, stock=17, warranty=4}
+TV{diagonal=40.85, resolution='4K', room='living room'} Product{productId='PROD0000000051', productName='Tgvymvoto ', productCategory=TV, productDistributor=Samsung, price=1000.0, promotion=null, stock=70, warranty=4}
+
+Deleted a tv:
+TV{diagonal=54.33, resolution='4K', room='living room'} Product{productId='PROD0000000045', productName='55TU8072', productCategory=TV, productDistributor=Samsung, price=2279.0, promotion=null, stock=40, warranty=3}
+TV{diagonal=74.52, resolution='4K', room='living room'} Product{productId='PROD0000000046', productName='75XH8096', productCategory=TV, productDistributor=Sony, price=7341.0, promotion=null, stock=23, warranty=4}
+TV{diagonal=31.5, resolution='HD', room='bedroom'} Product{productId='PROD0000000047', productName='32PHS5505', productCategory=TV, productDistributor=Philips, price=755.0, promotion=null, stock=29, warranty=3}
+TV{diagonal=64.52, resolution='4K', room='living room'} Product{productId='PROD0000000048', productName='65A8', productCategory=TV, productDistributor=Sony, price=11000.0, promotion=null, stock=10, warranty=5}
+TV{diagonal=57.48, resolution='4K', room='living room'} Product{productId='PROD0000000049', productName='58PUS7555', productCategory=TV, productDistributor=Philips, price=2000.0, promotion=null, stock=30, warranty=3}
+TV{diagonal=54.33, resolution='4K', room='living room'} Product{productId='PROD0000000050', productName='55TU8372', productCategory=TV, productDistributor=Samsung, price=2399.0, promotion=null, stock=17, warranty=4}

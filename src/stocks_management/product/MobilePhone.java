@@ -19,6 +19,14 @@ public class MobilePhone extends Product {
         this.numberOfCameras = numberOfCameras;
     }
 
+    public MobilePhone(String id, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, int ram, int memory, int numberOfCameras) {
+        super(id, stock, productName, productCategory, distributor, price, warranty);
+        this.diagonal = diagonal;
+        this.ram = ram;
+        this.memory = memory;
+        this.numberOfCameras = numberOfCameras;
+    }
+
     public double getDiagonal() {
         return diagonal;
     }

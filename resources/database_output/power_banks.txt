@@ -1,0 +1,21 @@
+Initial power banks:
+PowerBank{capacity=10050} Product{productId='PROD0000000037', productName='ZenPower', productCategory=Accessories, productDistributor=Asus, price=75.0, promotion=null, stock=6, warranty=1}
+PowerBank{capacity=10000} Product{productId='PROD0000000038', productName='SAMPB 23', productCategory=Accessories, productDistributor=Samsung, price=180.0, promotion=null, stock=10, warranty=2}
+PowerBank{capacity=20000} Product{productId='PROD0000000039', productName='EBP 5300', productCategory=Accessories, productDistributor=Samsung, price=213.0, promotion=null, stock=4, warranty=3}
+
+Added a new power bank:
+PowerBank{capacity=10050} Product{productId='PROD0000000037', productName='ZenPower', productCategory=Accessories, productDistributor=Asus, price=75.0, promotion=null, stock=6, warranty=1}
+PowerBank{capacity=10000} Product{productId='PROD0000000038', productName='SAMPB 23', productCategory=Accessories, productDistributor=Samsung, price=180.0, promotion=null, stock=10, warranty=2}
+PowerBank{capacity=20000} Product{productId='PROD0000000039', productName='EBP 5300', productCategory=Accessories, productDistributor=Samsung, price=213.0, promotion=null, stock=4, warranty=3}
+PowerBank{capacity=1335} Product{productId='PROD0000000040', productName='Mtzay 3', productCategory=Accessories, productDistributor=Samsung, price=123.0, promotion=null, stock=62, warranty=1}
+
+Edited a power bank:
+PowerBank{capacity=10050} Product{productId='PROD0000000037', productName='ZenPower', productCategory=Accessories, productDistributor=Asus, price=75.0, promotion=null, stock=6, warranty=1}
+PowerBank{capacity=10000} Product{productId='PROD0000000038', productName='SAMPB 23', productCategory=Accessories, productDistributor=Samsung, price=180.0, promotion=null, stock=10, warranty=2}
+PowerBank{capacity=20000} Product{productId='PROD0000000039', productName='EBP 5300', productCategory=Accessories, productDistributor=Samsung, price=213.0, promotion=null, stock=4, warranty=3}
+PowerBank{capacity=1335} Product{productId='PROD0000000040', productName='Mtzay 3', productCategory=Accessories, productDistributor=Samsung, price=300.0, promotion=null, stock=10, warranty=1}
+
+Deleted a power bank:
+PowerBank{capacity=10050} Product{productId='PROD0000000037', productName='ZenPower', productCategory=Accessories, productDistributor=Asus, price=75.0, promotion=null, stock=6, warranty=1}
+PowerBank{capacity=10000} Product{productId='PROD0000000038', productName='SAMPB 23', productCategory=Accessories, productDistributor=Samsung, price=180.0, promotion=null, stock=10, warranty=2}
+PowerBank{capacity=20000} Product{productId='PROD0000000039', productName='EBP 5300', productCategory=Accessories, productDistributor=Samsung, price=213.0, promotion=null, stock=4, warranty=3}

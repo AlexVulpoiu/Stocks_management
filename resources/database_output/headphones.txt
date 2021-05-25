@@ -1,0 +1,25 @@
+Initial headphones:
+Headphones{} Product{productId='PROD0000000016', productName='TUNE 500', productCategory=Accessories, productDistributor=JBL, price=199.0, promotion=null, stock=10, warranty=1}
+Headphones{} Product{productId='PROD0000000017', productName='SHB 3075', productCategory=Accessories, productDistributor=Philips, price=120.0, promotion=null, stock=4, warranty=2}
+Headphones{} Product{productId='PROD0000000018', productName='Airpods 2', productCategory=Accessories, productDistributor=Apple, price=999.0, promotion=null, stock=14, warranty=3}
+Headphones{} Product{productId='PROD0000000019', productName='MDRRF 811', productCategory=Accessories, productDistributor=Sony, price=250.0, promotion=null, stock=5, warranty=1}
+
+Added new headphones:
+Headphones{} Product{productId='PROD0000000016', productName='TUNE 500', productCategory=Accessories, productDistributor=JBL, price=199.0, promotion=null, stock=10, warranty=1}
+Headphones{} Product{productId='PROD0000000017', productName='SHB 3075', productCategory=Accessories, productDistributor=Philips, price=120.0, promotion=null, stock=4, warranty=2}
+Headphones{} Product{productId='PROD0000000018', productName='Airpods 2', productCategory=Accessories, productDistributor=Apple, price=999.0, promotion=null, stock=14, warranty=3}
+Headphones{} Product{productId='PROD0000000019', productName='MDRRF 811', productCategory=Accessories, productDistributor=Sony, price=250.0, promotion=null, stock=5, warranty=1}
+Headphones{} Product{productId='PROD0000000020', productName='Gmq 86', productCategory=Accessories, productDistributor=Philips, price=1310.0, promotion=null, stock=83, warranty=1}
+
+Edited headphones:
+Headphones{} Product{productId='PROD0000000016', productName='TUNE 500', productCategory=Accessories, productDistributor=JBL, price=199.0, promotion=null, stock=10, warranty=1}
+Headphones{} Product{productId='PROD0000000017', productName='SHB 3075', productCategory=Accessories, productDistributor=Philips, price=120.0, promotion=null, stock=4, warranty=2}
+Headphones{} Product{productId='PROD0000000018', productName='Airpods 2', productCategory=Accessories, productDistributor=Apple, price=999.0, promotion=null, stock=14, warranty=3}
+Headphones{} Product{productId='PROD0000000019', productName='MDRRF 811', productCategory=Accessories, productDistributor=Sony, price=250.0, promotion=null, stock=5, warranty=1}
+Headphones{} Product{productId='PROD0000000020', productName='Gmq 86', productCategory=Accessories, productDistributor=Philips, price=300.0, promotion=null, stock=1000, warranty=1}
+
+Deleted headphones:
+Headphones{} Product{productId='PROD0000000016', productName='TUNE 500', productCategory=Accessories, productDistributor=JBL, price=199.0, promotion=null, stock=10, warranty=1}
+Headphones{} Product{productId='PROD0000000017', productName='SHB 3075', productCategory=Accessories, productDistributor=Philips, price=120.0, promotion=null, stock=4, warranty=2}
+Headphones{} Product{productId='PROD0000000018', productName='Airpods 2', productCategory=Accessories, productDistributor=Apple, price=999.0, promotion=null, stock=14, warranty=3}
+Headphones{} Product{productId='PROD0000000019', productName='MDRRF 811', productCategory=Accessories, productDistributor=Sony, price=250.0, promotion=null, stock=5, warranty=1}

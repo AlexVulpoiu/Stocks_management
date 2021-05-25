@@ -33,6 +33,25 @@ public class Laptop extends Product {
         }
     }
 
+    public Laptop(String id, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String cpu, int ram, int memory, String storageType, String graphicsCard, int usbPorts) {
+        super(id, stock, productName, productCategory, distributor, price, warranty);
+        this.diagonal = diagonal;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.memory = memory;
+        this.storageType = storageType;
+        this.graphicsCard = graphicsCard;
+        this.usbPorts = usbPorts;
+        if(this.ram < 8) {
+            this.category = "home";
+        }
+        else if(this.ram < 16) {
+            this.category = "business";
+        } else {
+            this.category = "gaming";
+        }
+    }
+
     public double getDiagonal() {
         return diagonal;
     }

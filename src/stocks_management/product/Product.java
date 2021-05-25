@@ -35,6 +35,16 @@ public abstract class Product implements Comparable<Product> {
         this.warranty = warranty;
     }
 
+    public Product(String productId, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
+        this.productId = productId;
+        this.stock = stock;
+        this.productName = productName;
+        this.productCategory = productCategory;
+        this.productDistributor = distributor;
+        this.price = price;
+        this.warranty = warranty;
+    }
+
     public String getProductId() {
         return productId;
     }

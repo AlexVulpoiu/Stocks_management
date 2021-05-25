@@ -1,0 +1,25 @@
+Initial mouses:
+Mouse{wireless=true} Product{productId='PROD0000000032', productName='Magic Mouse 2', productCategory=Accessories, productDistributor=Apple, price=357.0, promotion=null, stock=34, warranty=1}
+Mouse{wireless=true} Product{productId='PROD0000000033', productName='ROG Strix Impact 2', productCategory=Accessories, productDistributor=Asus, price=309.0, promotion=null, stock=20, warranty=2}
+Mouse{wireless=true} Product{productId='PROD0000000034', productName='M344', productCategory=Accessories, productDistributor=Philips, price=37.0, promotion=null, stock=43, warranty=1}
+Mouse{wireless=false} Product{productId='PROD0000000035', productName='Cerberus', productCategory=Accessories, productDistributor=Asus, price=134.0, promotion=null, stock=16, warranty=2}
+
+Added a new mouse:
+Mouse{wireless=true} Product{productId='PROD0000000032', productName='Magic Mouse 2', productCategory=Accessories, productDistributor=Apple, price=357.0, promotion=null, stock=34, warranty=1}
+Mouse{wireless=true} Product{productId='PROD0000000033', productName='ROG Strix Impact 2', productCategory=Accessories, productDistributor=Asus, price=309.0, promotion=null, stock=20, warranty=2}
+Mouse{wireless=true} Product{productId='PROD0000000034', productName='M344', productCategory=Accessories, productDistributor=Philips, price=37.0, promotion=null, stock=43, warranty=1}
+Mouse{wireless=false} Product{productId='PROD0000000035', productName='Cerberus', productCategory=Accessories, productDistributor=Asus, price=134.0, promotion=null, stock=16, warranty=2}
+Mouse{wireless=false} Product{productId='PROD0000000036', productName='Uscc Qtdqap ', productCategory=Accessories, productDistributor=Apple, price=190.0, promotion=null, stock=66, warranty=5}
+
+Edited a mouse:
+Mouse{wireless=true} Product{productId='PROD0000000032', productName='Magic Mouse 2', productCategory=Accessories, productDistributor=Apple, price=357.0, promotion=null, stock=34, warranty=1}
+Mouse{wireless=true} Product{productId='PROD0000000033', productName='ROG Strix Impact 2', productCategory=Accessories, productDistributor=Asus, price=309.0, promotion=null, stock=20, warranty=2}
+Mouse{wireless=true} Product{productId='PROD0000000034', productName='M344', productCategory=Accessories, productDistributor=Philips, price=37.0, promotion=null, stock=43, warranty=1}
+Mouse{wireless=false} Product{productId='PROD0000000035', productName='Cerberus', productCategory=Accessories, productDistributor=Asus, price=134.0, promotion=null, stock=16, warranty=2}
+Mouse{wireless=false} Product{productId='PROD0000000036', productName='Uscc Qtdqap ', productCategory=Accessories, productDistributor=Apple, price=90.0, promotion=null, stock=55, warranty=5}
+
+Deleted a mouse:
+Mouse{wireless=true} Product{productId='PROD0000000032', productName='Magic Mouse 2', productCategory=Accessories, productDistributor=Apple, price=357.0, promotion=null, stock=34, warranty=1}
+Mouse{wireless=true} Product{productId='PROD0000000033', productName='ROG Strix Impact 2', productCategory=Accessories, productDistributor=Asus, price=309.0, promotion=null, stock=20, warranty=2}
+Mouse{wireless=true} Product{productId='PROD0000000034', productName='M344', productCategory=Accessories, productDistributor=Philips, price=37.0, promotion=null, stock=43, warranty=1}
+Mouse{wireless=false} Product{productId='PROD0000000035', productName='Cerberus', productCategory=Accessories, productDistributor=Asus, price=134.0, promotion=null, stock=16, warranty=2}

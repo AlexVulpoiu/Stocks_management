@@ -1,0 +1,21 @@
+Initial gas cookers:
+GasCooker{} Product{productId='PROD0000000012', productName='FSE 62110', productCategory=Appliances, productDistributor=Beko, price=1300.0, promotion=null, stock=4, warranty=3}
+GasCooker{} Product{productId='PROD0000000013', productName='FSE 62134', productCategory=Appliances, productDistributor=Beko, price=1489.0, promotion=null, stock=1, warranty=3}
+GasCooker{} Product{productId='PROD0000000014', productName='FDM 62130', productCategory=Appliances, productDistributor=Beko, price=1948.0, promotion=null, stock=7, warranty=3}
+
+Added a new gas cooker:
+GasCooker{} Product{productId='PROD0000000012', productName='FSE 62110', productCategory=Appliances, productDistributor=Beko, price=1300.0, promotion=null, stock=4, warranty=3}
+GasCooker{} Product{productId='PROD0000000013', productName='FSE 62134', productCategory=Appliances, productDistributor=Beko, price=1489.0, promotion=null, stock=1, warranty=3}
+GasCooker{} Product{productId='PROD0000000014', productName='FDM 62130', productCategory=Appliances, productDistributor=Beko, price=1948.0, promotion=null, stock=7, warranty=3}
+GasCooker{} Product{productId='PROD0000000015', productName='Dyl ', productCategory=Appliances, productDistributor=Samsung, price=1305.0, promotion=null, stock=3, warranty=3}
+
+Edited a gas cooker:
+GasCooker{} Product{productId='PROD0000000012', productName='FSE 62110', productCategory=Appliances, productDistributor=Beko, price=1300.0, promotion=null, stock=4, warranty=3}
+GasCooker{} Product{productId='PROD0000000013', productName='FSE 62134', productCategory=Appliances, productDistributor=Beko, price=1489.0, promotion=null, stock=1, warranty=3}
+GasCooker{} Product{productId='PROD0000000014', productName='FDM 62130', productCategory=Appliances, productDistributor=Beko, price=1948.0, promotion=null, stock=7, warranty=3}
+GasCooker{} Product{productId='PROD0000000015', productName='Dyl ', productCategory=Appliances, productDistributor=Samsung, price=900.0, promotion=null, stock=10, warranty=3}
+
+Deleted a gas cooker:
+GasCooker{} Product{productId='PROD0000000012', productName='FSE 62110', productCategory=Appliances, productDistributor=Beko, price=1300.0, promotion=null, stock=4, warranty=3}
+GasCooker{} Product{productId='PROD0000000013', productName='FSE 62134', productCategory=Appliances, productDistributor=Beko, price=1489.0, promotion=null, stock=1, warranty=3}
+GasCooker{} Product{productId='PROD0000000014', productName='FDM 62130', productCategory=Appliances, productDistributor=Beko, price=1948.0, promotion=null, stock=7, warranty=3}

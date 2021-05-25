@@ -1,15 +1,47 @@
 package stocks_management.services;
 
+import database.repository.DistributorRepository;
 import stocks_management.distributor.Distributor;
 import stocks_management.product.Product;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class DistributorService {
 
     private final AuditService auditService = AuditService.getInstance();
 
     private static DistributorService instance = null;
+
+    private DistributorRepository repository = new DistributorRepository();
+
+    public Distributor add(Distributor distributor) {
+        if(distributor.getDistributorName() != null && !distributor.getDistributorName().isEmpty()) {
+            return repository.save(distributor);
+        } else {
+            throw new RuntimeException("Bad request!");
+        }
+    }
+
+    public List<Distributor> getAll() {
+        return repository.findAll();
+    }
+
+    public void update(Distributor distributor, String name, String country) {
+        if(distributor == null) {
+            System.out.println("No distributor was provided to update method!");
+            return;
+        }
+        repository.update(distributor.getDistributorId(), name, country);
+    }
+
+    public void delete(Distributor distributor) {
+        if(distributor == null) {
+            System.out.println("No distributor was provided to delete method!");
+            return;
+        }
+        repository.delete(distributor.getDistributorId());
+    }
 
     private DistributorService() {}
 

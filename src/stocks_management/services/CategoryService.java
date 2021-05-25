@@ -1,13 +1,49 @@
 package stocks_management.services;
 
+import database.repository.CategoryRepository;
 import stocks_management.category.Category;
 import stocks_management.product.Product;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class CategoryService {
 
     private static CategoryService instance = null;
+
+    private CategoryRepository repository = new CategoryRepository();
+
+    public Category add(Category category) {
+        if(category.getCategoryName() != null) {
+            return repository.save(category);
+        } else {
+            throw new RuntimeException("Bad request!");
+        }
+    }
+
+    public List<Category> getAll() {
+        return repository.findAll();
+    }
+
+    public boolean changeName(Category category, String name) {
+        if(category == null) {
+            System.out.println("No category was provided to update method");
+            return false;
+        }
+        if(name == null) {
+            System.out.println("The category having id " + category.getCategoryId() + " couldn't be updated(null name provided)!");
+            return false;
+        }
+        return repository.update(category.getCategoryId(), name);
+    }
+
+    public void delete(Category category) {
+        if(category == null) {
+            System.out.println("No category was provided to delete method");
+            return;
+        }
+        repository.delete(category.getCategoryId());
+    }
 
     private CategoryService() {}
 

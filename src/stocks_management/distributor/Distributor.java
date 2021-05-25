@@ -25,6 +25,13 @@ public class Distributor implements Comparable<Distributor> {
         this.products = new Product[0];
     }
 
+    public Distributor(String distributorId, String distributorName, String country) {  // this is for creating temporary objects, used in validations or checks
+        this.distributorId = distributorId;
+        this.distributorName = distributorName;
+        this.country = country;
+        this.products = new Product[0];
+    }
+
     public String getDistributorId() {
         return distributorId;
     }

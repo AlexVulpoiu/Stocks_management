@@ -42,6 +42,138 @@ public class StockService {
         return stock;
     }
 
+    public List<AudioSpeaker> getAudioSpeakers() {
+
+        List<AudioSpeaker> audioSpeakers = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof AudioSpeaker) {
+                audioSpeakers.add((AudioSpeaker) product);
+            }
+        }
+
+        return audioSpeakers;
+    }
+
+    public List<AudioSystem> getAudioSystems() {
+
+        List<AudioSystem> audioSystems = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof AudioSystem) {
+                audioSystems.add((AudioSystem) product);
+            }
+        }
+
+        return audioSystems;
+    }
+
+    public List<Fridge> getFridges() {
+
+        List<Fridge> fridges = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof Fridge) {
+                fridges.add((Fridge) product);
+            }
+        }
+
+        return fridges;
+    }
+
+    public List<GasCooker> getGasCookers() {
+
+        List<GasCooker> gasCookers = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof GasCooker) {
+                gasCookers.add((GasCooker) product);
+            }
+        }
+
+        return gasCookers;
+    }
+
+    public List<Headphones> getHeadphones() {
+
+        List<Headphones> headphones = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof Headphones) {
+                headphones.add((Headphones) product);
+            }
+        }
+
+        return headphones;
+    }
+
+    public List<Laptop> getLaptops() {
+
+        List<Laptop> laptops = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof Laptop) {
+                laptops.add((Laptop) product);
+            }
+        }
+
+        return laptops;
+    }
+
+    public List<MobilePhone> getMobilePhones() {
+
+        List<MobilePhone> mobilePhones = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof MobilePhone) {
+                mobilePhones.add((MobilePhone) product);
+            }
+        }
+
+        return mobilePhones;
+    }
+
+    public List<Mouse> getMouses() {
+
+        List<Mouse> mouses = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof Mouse) {
+                mouses.add((Mouse) product);
+            }
+        }
+
+        return mouses;
+    }
+
+    public List<PowerBank> getPowerBanks() {
+
+        List<PowerBank> powerBanks = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof PowerBank) {
+                powerBanks.add((PowerBank) product);
+            }
+        }
+
+        return powerBanks;
+    }
+
+    public List<Smartwatch> getSmartwatches() {
+
+        List<Smartwatch> smartwatches = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof Smartwatch) {
+                smartwatches.add((Smartwatch) product);
+            }
+        }
+
+        return smartwatches;
+    }
+
+    public List<TV> getTVs() {
+
+        List<TV> tvs = new ArrayList<>();
+        for(Product product : this.stock) {
+            if(product instanceof TV) {
+                tvs.add((TV) product);
+            }
+        }
+
+        return tvs;
+    }
+
     public Set<Distributor> getDistributors() {
         return distributors;
     }
@@ -305,7 +437,7 @@ public class StockService {
         int randomIndex = random.nextInt(currentDistributors.size());
         Distributor distributor = currentDistributors.get(randomIndex);
 
-       Category category = findCategoryByName("Audio");
+        Category category = findCategoryByName("Audio");
 
         String name = generateName();
         double price = generateDouble(200, 1500);
@@ -364,11 +496,11 @@ public class StockService {
         double price = generateDouble(800, 4000);
         int stock = 1 + random.nextInt(100);
         int warranty = 1 + random.nextInt(5);
-        int minTemp = random.nextInt(4);
+        int minTemp = 1 + random.nextInt(4);
         int maxTemp = minTemp + 5;
-        double height = generateDouble(1.3, 2.0);
-        double width = generateDouble(0.6, 1.0);
-        double length = generateDouble(0.6, 1.0);
+        double height = generateDouble(130.0, 200.0);
+        double width = generateDouble(60.0, 100.0);
+        double length = generateDouble(60.0, 100.0);
         boolean freezer = random.nextBoolean();
 
         Fridge fridge = new Fridge(stock, name, category, distributor, price, warranty, minTemp, maxTemp, height, width, length, freezer);

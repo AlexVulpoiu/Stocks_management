@@ -9,6 +9,10 @@ public class Headphones extends Product {
         super(stock, productName, productCategory, distributor, price, warranty);
     }
 
+    public Headphones(String id, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty) {
+        super(id, stock, productName, productCategory, distributor, price, warranty);
+    }
+
     @Override
     public void showDescription() {
 

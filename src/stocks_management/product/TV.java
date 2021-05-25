@@ -20,6 +20,17 @@ public class TV extends Product {
         }
     }
 
+    public TV(String id, int stock, String productName, Category productCategory, Distributor distributor, double price, int warranty, double diagonal, String resolution) {
+        super(id, stock, productName, productCategory, distributor, price, warranty);
+        this.diagonal = diagonal;
+        this.resolution = resolution;
+        if(this.diagonal <= 40) {
+            this.room = "bedroom";
+        } else {
+            this.room = "living room";
+        }
+    }
+
     public double getDiagonal() {
         return diagonal;
     }

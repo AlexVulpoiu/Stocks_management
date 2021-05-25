@@ -1,0 +1,21 @@
+Initial audio systems:
+AudioSystem{power=240, numberOfPieces=1, wireless=false, bluetooth=true} Product{productId='PROD0000000005', productName='Partybox 310', productCategory=Audio, productDistributor=JBL, price=2099.9, promotion=null, stock=10, warranty=2}
+AudioSystem{power=15, numberOfPieces=3, wireless=true, bluetooth=true} Product{productId='PROD0000000006', productName='BTM 2310', productCategory=Audio, productDistributor=Philips, price=569.91, promotion=null, stock=5, warranty=3}
+AudioSystem{power=200, numberOfPieces=3, wireless=false, bluetooth=true} Product{productId='PROD0000000007', productName='STRDH 190', productCategory=Audio, productDistributor=Sony, price=2499.0, promotion=null, stock=5, warranty=5}
+
+Added a new audio system:
+AudioSystem{power=240, numberOfPieces=1, wireless=false, bluetooth=true} Product{productId='PROD0000000005', productName='Partybox 310', productCategory=Audio, productDistributor=JBL, price=2099.9, promotion=null, stock=10, warranty=2}
+AudioSystem{power=15, numberOfPieces=3, wireless=true, bluetooth=true} Product{productId='PROD0000000006', productName='BTM 2310', productCategory=Audio, productDistributor=Philips, price=569.91, promotion=null, stock=5, warranty=3}
+AudioSystem{power=200, numberOfPieces=3, wireless=false, bluetooth=true} Product{productId='PROD0000000007', productName='STRDH 190', productCategory=Audio, productDistributor=Sony, price=2499.0, promotion=null, stock=5, warranty=5}
+AudioSystem{power=1441, numberOfPieces=10, wireless=true, bluetooth=false} Product{productId='PROD0000000008', productName='Gvzr ', productCategory=Audio, productDistributor=Samsung, price=4778.29, promotion=null, stock=51, warranty=1}
+
+Edited an audio system:
+AudioSystem{power=240, numberOfPieces=1, wireless=false, bluetooth=true} Product{productId='PROD0000000005', productName='Partybox 310', productCategory=Audio, productDistributor=JBL, price=2099.9, promotion=null, stock=10, warranty=2}
+AudioSystem{power=15, numberOfPieces=3, wireless=true, bluetooth=true} Product{productId='PROD0000000006', productName='BTM 2310', productCategory=Audio, productDistributor=Philips, price=569.91, promotion=null, stock=5, warranty=3}
+AudioSystem{power=200, numberOfPieces=3, wireless=false, bluetooth=true} Product{productId='PROD0000000007', productName='STRDH 190', productCategory=Audio, productDistributor=Sony, price=2499.0, promotion=null, stock=5, warranty=5}
+AudioSystem{power=1441, numberOfPieces=10, wireless=true, bluetooth=false} Product{productId='PROD0000000008', productName='Gvzr ', productCategory=Audio, productDistributor=Samsung, price=1000.0, promotion=null, stock=200, warranty=1}
+
+Deleted an audio system:
+AudioSystem{power=240, numberOfPieces=1, wireless=false, bluetooth=true} Product{productId='PROD0000000005', productName='Partybox 310', productCategory=Audio, productDistributor=JBL, price=2099.9, promotion=null, stock=10, warranty=2}
+AudioSystem{power=15, numberOfPieces=3, wireless=true, bluetooth=true} Product{productId='PROD0000000006', productName='BTM 2310', productCategory=Audio, productDistributor=Philips, price=569.91, promotion=null, stock=5, warranty=3}
+AudioSystem{power=200, numberOfPieces=3, wireless=false, bluetooth=true} Product{productId='PROD0000000007', productName='STRDH 190', productCategory=Audio, productDistributor=Sony, price=2499.0, promotion=null, stock=5, warranty=5}

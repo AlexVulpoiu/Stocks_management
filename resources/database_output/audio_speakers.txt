@@ -1,0 +1,21 @@
+Initial audio speakers:
+AudioSpeaker{power=360, wireless=true, bluetooth=true} Product{productId='PROD0000000001', productName='HWQ 60', productCategory=Audio, productDistributor=Samsung, price=1098.9, promotion=null, stock=8, warranty=3}
+AudioSpeaker{power=320, wireless=true, bluetooth=true} Product{productId='PROD0000000002', productName='HTS 350', productCategory=Audio, productDistributor=Sony, price=949.99, promotion=null, stock=3, warranty=1}
+AudioSpeaker{power=150, wireless=false, bluetooth=false} Product{productId='PROD0000000003', productName='Arena 125', productCategory=Audio, productDistributor=JBL, price=999.99, promotion=null, stock=1, warranty=4}
+
+Added a new audio speaker:
+AudioSpeaker{power=360, wireless=true, bluetooth=true} Product{productId='PROD0000000001', productName='HWQ 60', productCategory=Audio, productDistributor=Samsung, price=1098.9, promotion=null, stock=8, warranty=3}
+AudioSpeaker{power=320, wireless=true, bluetooth=true} Product{productId='PROD0000000002', productName='HTS 350', productCategory=Audio, productDistributor=Sony, price=949.99, promotion=null, stock=3, warranty=1}
+AudioSpeaker{power=150, wireless=false, bluetooth=false} Product{productId='PROD0000000003', productName='Arena 125', productCategory=Audio, productDistributor=JBL, price=999.99, promotion=null, stock=1, warranty=4}
+AudioSpeaker{power=210, wireless=false, bluetooth=false} Product{productId='PROD0000000004', productName='Lebjgqj ', productCategory=Audio, productDistributor=Samsung, price=449.18, promotion=null, stock=64, warranty=3}
+
+Edited an audio speaker:
+AudioSpeaker{power=360, wireless=true, bluetooth=true} Product{productId='PROD0000000001', productName='HWQ 60', productCategory=Audio, productDistributor=Samsung, price=1098.9, promotion=null, stock=8, warranty=3}
+AudioSpeaker{power=320, wireless=true, bluetooth=true} Product{productId='PROD0000000002', productName='HTS 350', productCategory=Audio, productDistributor=Sony, price=949.99, promotion=null, stock=3, warranty=1}
+AudioSpeaker{power=150, wireless=false, bluetooth=false} Product{productId='PROD0000000003', productName='Arena 125', productCategory=Audio, productDistributor=JBL, price=999.99, promotion=null, stock=1, warranty=4}
+AudioSpeaker{power=210, wireless=false, bluetooth=false} Product{productId='PROD0000000004', productName='Lebjgqj ', productCategory=Audio, productDistributor=Samsung, price=400.0, promotion=null, stock=40000, warranty=3}
+
+Deleted an audio speaker:
+AudioSpeaker{power=360, wireless=true, bluetooth=true} Product{productId='PROD0000000001', productName='HWQ 60', productCategory=Audio, productDistributor=Samsung, price=1098.9, promotion=null, stock=8, warranty=3}
+AudioSpeaker{power=320, wireless=true, bluetooth=true} Product{productId='PROD0000000002', productName='HTS 350', productCategory=Audio, productDistributor=Sony, price=949.99, promotion=null, stock=3, warranty=1}
+AudioSpeaker{power=150, wireless=false, bluetooth=false} Product{productId='PROD0000000003', productName='Arena 125', productCategory=Audio, productDistributor=JBL, price=999.99, promotion=null, stock=1, warranty=4}

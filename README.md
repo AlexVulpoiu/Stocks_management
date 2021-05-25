@@ -39,9 +39,9 @@ A project that helps to manage stocks of an electronics and appliances store.
     - show transactions.
 
 # Object Types:
-- PRODUCT(abstract class);
-- LAPTOP, MOBILE_PHONE, FRIDGE, GAS_COOKER, AUDIO_SYSTEM, AUDIO_SPEAKER, TV, MOUSE, HEADPHONES, SMARTWATCH, POWER_BANK;
-- CATEGORY;
-- DISTRIBUTOR;
-- TRANSACTION;
-- VALIDATOR.
+- Product(abstract class);
+- AudioSpeaker, AudioSystem, Fridge, GasCooker, Headphones, Laptop, MobilePhone, Mouse, PowerBank, Smartwatch, TV;
+- Category;
+- Distributor;
+- Transaction;
+- Validator.

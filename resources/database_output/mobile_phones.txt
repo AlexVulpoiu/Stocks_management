@@ -1,0 +1,29 @@
+Initial mobile phones:
+MobilePhone{diagonal=6.1, ram=6, memory=128, numberOfCameras=3} Product{productId='PROD0000000026', productName='iPhone 12 Pro', productCategory=IT, productDistributor=Apple, price=5000.0, promotion=null, stock=20, warranty=2}
+MobilePhone{diagonal=6.7, ram=8, memory=128, numberOfCameras=3} Product{productId='PROD0000000027', productName='Galaxy S21 Plus', productCategory=IT, productDistributor=Samsung, price=3800.0, promotion=null, stock=15, warranty=2}
+MobilePhone{diagonal=6.6, ram=12, memory=512, numberOfCameras=3} Product{productId='PROD0000000028', productName='ROG Phone 3', productCategory=IT, productDistributor=Asus, price=5000.0, promotion=null, stock=8, warranty=2}
+MobilePhone{diagonal=6.1, ram=3, memory=128, numberOfCameras=2} Product{productId='PROD0000000029', productName='iPhone XR', productCategory=IT, productDistributor=Apple, price=2930.0, promotion=null, stock=6, warranty=2}
+MobilePhone{diagonal=6.7, ram=6, memory=128, numberOfCameras=4} Product{productId='PROD0000000030', productName='Galaxy A72', productCategory=IT, productDistributor=Samsung, price=1979.0, promotion=null, stock=6, warranty=2}
+
+Added a new mobile phone:
+MobilePhone{diagonal=6.1, ram=6, memory=128, numberOfCameras=3} Product{productId='PROD0000000026', productName='iPhone 12 Pro', productCategory=IT, productDistributor=Apple, price=5000.0, promotion=null, stock=20, warranty=2}
+MobilePhone{diagonal=6.7, ram=8, memory=128, numberOfCameras=3} Product{productId='PROD0000000027', productName='Galaxy S21 Plus', productCategory=IT, productDistributor=Samsung, price=3800.0, promotion=null, stock=15, warranty=2}
+MobilePhone{diagonal=6.6, ram=12, memory=512, numberOfCameras=3} Product{productId='PROD0000000028', productName='ROG Phone 3', productCategory=IT, productDistributor=Asus, price=5000.0, promotion=null, stock=8, warranty=2}
+MobilePhone{diagonal=6.1, ram=3, memory=128, numberOfCameras=2} Product{productId='PROD0000000029', productName='iPhone XR', productCategory=IT, productDistributor=Apple, price=2930.0, promotion=null, stock=6, warranty=2}
+MobilePhone{diagonal=6.7, ram=6, memory=128, numberOfCameras=4} Product{productId='PROD0000000030', productName='Galaxy A72', productCategory=IT, productDistributor=Samsung, price=1979.0, promotion=null, stock=6, warranty=2}
+MobilePhone{diagonal=5.41, ram=7, memory=109, numberOfCameras=3} Product{productId='PROD0000000031', productName='Patgdcnq ', productCategory=IT, productDistributor=Apple, price=4803.0, promotion=null, stock=35, warranty=2}
+
+Edited a mobile phone:
+MobilePhone{diagonal=6.1, ram=6, memory=128, numberOfCameras=3} Product{productId='PROD0000000026', productName='iPhone 12 Pro', productCategory=IT, productDistributor=Apple, price=5000.0, promotion=null, stock=20, warranty=2}
+MobilePhone{diagonal=6.7, ram=8, memory=128, numberOfCameras=3} Product{productId='PROD0000000027', productName='Galaxy S21 Plus', productCategory=IT, productDistributor=Samsung, price=3800.0, promotion=null, stock=15, warranty=2}
+MobilePhone{diagonal=6.6, ram=12, memory=512, numberOfCameras=3} Product{productId='PROD0000000028', productName='ROG Phone 3', productCategory=IT, productDistributor=Asus, price=5000.0, promotion=null, stock=8, warranty=2}
+MobilePhone{diagonal=6.1, ram=3, memory=128, numberOfCameras=2} Product{productId='PROD0000000029', productName='iPhone XR', productCategory=IT, productDistributor=Apple, price=2930.0, promotion=null, stock=6, warranty=2}
+MobilePhone{diagonal=6.7, ram=6, memory=128, numberOfCameras=4} Product{productId='PROD0000000030', productName='Galaxy A72', productCategory=IT, productDistributor=Samsung, price=1979.0, promotion=null, stock=6, warranty=2}
+MobilePhone{diagonal=5.41, ram=7, memory=109, numberOfCameras=3} Product{productId='PROD0000000031', productName='Patgdcnq ', productCategory=IT, productDistributor=Apple, price=4000.0, promotion=null, stock=500, warranty=2}
+
+Deleted a mobile phone:
+MobilePhone{diagonal=6.1, ram=6, memory=128, numberOfCameras=3} Product{productId='PROD0000000026', productName='iPhone 12 Pro', productCategory=IT, productDistributor=Apple, price=5000.0, promotion=null, stock=20, warranty=2}
+MobilePhone{diagonal=6.7, ram=8, memory=128, numberOfCameras=3} Product{productId='PROD0000000027', productName='Galaxy S21 Plus', productCategory=IT, productDistributor=Samsung, price=3800.0, promotion=null, stock=15, warranty=2}
+MobilePhone{diagonal=6.6, ram=12, memory=512, numberOfCameras=3} Product{productId='PROD0000000028', productName='ROG Phone 3', productCategory=IT, productDistributor=Asus, price=5000.0, promotion=null, stock=8, warranty=2}
+MobilePhone{diagonal=6.1, ram=3, memory=128, numberOfCameras=2} Product{productId='PROD0000000029', productName='iPhone XR', productCategory=IT, productDistributor=Apple, price=2930.0, promotion=null, stock=6, warranty=2}
+MobilePhone{diagonal=6.7, ram=6, memory=128, numberOfCameras=4} Product{productId='PROD0000000030', productName='Galaxy A72', productCategory=IT, productDistributor=Samsung, price=1979.0, promotion=null, stock=6, warranty=2}

@@ -1,0 +1,37 @@
+Initial distributors:
+Distributor{distributorId='DIST001', distributorName='Samsung', country='South Korea', products=[]}
+Distributor{distributorId='DIST002', distributorName='Apple', country='US', products=[]}
+Distributor{distributorId='DIST003', distributorName='Beko', country='Turkey', products=[]}
+Distributor{distributorId='DIST004', distributorName='Philips', country='Netherlands', products=[]}
+Distributor{distributorId='DIST005', distributorName='Asus', country='Taiwan', products=[]}
+Distributor{distributorId='DIST006', distributorName='JBL', country='US', products=[]}
+Distributor{distributorId='DIST007', distributorName='Sony', country='Japan', products=[]}
+
+Added a new distributor:
+Distributor{distributorId='DIST001', distributorName='Samsung', country='South Korea', products=[]}
+Distributor{distributorId='DIST002', distributorName='Apple', country='US', products=[]}
+Distributor{distributorId='DIST003', distributorName='Beko', country='Turkey', products=[]}
+Distributor{distributorId='DIST004', distributorName='Philips', country='Netherlands', products=[]}
+Distributor{distributorId='DIST005', distributorName='Asus', country='Taiwan', products=[]}
+Distributor{distributorId='DIST006', distributorName='JBL', country='US', products=[]}
+Distributor{distributorId='DIST007', distributorName='Sony', country='Japan', products=[]}
+Distributor{distributorId='DIST008', distributorName='New distributor', country='Romania', products=[]}
+
+Edited a distributor:
+Distributor{distributorId='DIST001', distributorName='Samsung', country='South Korea', products=[]}
+Distributor{distributorId='DIST002', distributorName='Apple', country='US', products=[]}
+Distributor{distributorId='DIST003', distributorName='Beko', country='Turkey', products=[]}
+Distributor{distributorId='DIST004', distributorName='Philips', country='Netherlands', products=[]}
+Distributor{distributorId='DIST005', distributorName='Asus', country='Taiwan', products=[]}
+Distributor{distributorId='DIST006', distributorName='JBL', country='US', products=[]}
+Distributor{distributorId='DIST007', distributorName='Sony', country='Japan', products=[]}
+Distributor{distributorId='DIST008', distributorName='New distributor edited', country='Japan', products=[]}
+
+Deleted a distributor:
+Distributor{distributorId='DIST001', distributorName='Samsung', country='South Korea', products=[]}
+Distributor{distributorId='DIST002', distributorName='Apple', country='US', products=[]}
+Distributor{distributorId='DIST003', distributorName='Beko', country='Turkey', products=[]}
+Distributor{distributorId='DIST004', distributorName='Philips', country='Netherlands', products=[]}
+Distributor{distributorId='DIST005', distributorName='Asus', country='Taiwan', products=[]}
+Distributor{distributorId='DIST006', distributorName='JBL', country='US', products=[]}
+Distributor{distributorId='DIST007', distributorName='Sony', country='Japan', products=[]}

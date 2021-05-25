@@ -28,6 +28,12 @@ public class Category implements Comparable<Category> {
         this.products = new Product[0];
     }
 
+    public Category(String id, String name) {   // this is for creating temporary objects, used in validations or checks
+        this.categoryId = id;
+        this.categoryName = name;
+        this.products = new Product[0];
+    }
+
     public String getCategoryId() {
         return categoryId;
     }
